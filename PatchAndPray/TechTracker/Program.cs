@@ -11,7 +11,7 @@ class Program
     {
         Env.Load();
         
-        const string connectionString = "mongodb+srv://db_woodwarda1:AJWoods-AUG!2300@cluster.vkiam1i.mongodb.net/?appName=Cluster";
+        const string connectionString = "YOUR MONGO URI";
         var client = new MongoClient(connectionString);
 
         var db = client.GetDatabase("TechTracker");
