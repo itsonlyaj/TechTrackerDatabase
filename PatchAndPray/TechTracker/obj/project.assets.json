@@ -5250,11 +5250,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ajwoo\\Documents\\ETSU\\CSCI 3020\\PatchAndPray\\TechTracker\\TechTracker.csproj",
+      "projectUniqueName": "C:\\Users\\ajwoo\\Documents\\ETSU\\CSCI 3020\\TechTrackerRepository\\TechTrackerDatabase\\PatchAndPray\\TechTracker\\TechTracker.csproj",
       "projectName": "TechTracker",
-      "projectPath": "C:\\Users\\ajwoo\\Documents\\ETSU\\CSCI 3020\\PatchAndPray\\TechTracker\\TechTracker.csproj",
+      "projectPath": "C:\\Users\\ajwoo\\Documents\\ETSU\\CSCI 3020\\TechTrackerRepository\\TechTrackerDatabase\\PatchAndPray\\TechTracker\\TechTracker.csproj",
       "packagesPath": "C:\\Users\\ajwoo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ajwoo\\Documents\\ETSU\\CSCI 3020\\PatchAndPray\\TechTracker\\obj\\",
+      "outputPath": "C:\\Users\\ajwoo\\Documents\\ETSU\\CSCI 3020\\TechTrackerRepository\\TechTrackerDatabase\\PatchAndPray\\TechTracker\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

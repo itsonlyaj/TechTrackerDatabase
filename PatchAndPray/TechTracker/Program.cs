@@ -35,8 +35,7 @@ class Program
 
         var db6 = client.GetDatabase("TechTracker");
         var transactions = db6.GetCollection<Transactions>("Transactions");
-
-        // Inserts a single customer into the Customers collection and prints the assigned ID.
+    // Inserts a single customer into the Customers collection and prints the assigned ID.
 
         // var oneCustomer = new Customer
         // {
@@ -647,256 +646,491 @@ class Program
         //     Console.WriteLine($"Name: {employee.FirstName} {employee.LastName}, ID: {employee._id}, Email: {employee.Email}, Role: {employee.EmployeeRole}");
         // }
 
-        var randomEmployees = new List<Employees>
+        // var randomEmployees = new List<Employees>
+        // {
+        //     new Employees
+        //     {
+        //         FirstName = "Harold",
+        //         LastName = "Douglas",
+        //         Email = "harold343@techtracker.com",
+        //         PhoneNumber = "483-111-2003",
+        //         address = new Address
+        //         {
+        //             Street = "934 Pine Dr",
+        //             City = "Bristol",
+        //             State = "TN",
+        //             ZipCode = "24201"
+        //         },
+        //         PasswordHash = "H783*#6Hg&2",
+        //         EmployeeRole = "Technician"
+        //     },
+        //     new Employees
+        //     {
+        //         FirstName = "Landon",
+        //         LastName = "Reeves",
+        //         Email = "lreeves@techtracker.com",
+        //         PhoneNumber = "423-555-1011",
+        //         address = new Address
+        //         {
+        //             Street = "120 Maple Ridge Rd",
+        //             City = "Johnson City",
+        //             State = "TN",
+        //             ZipCode = "37601"
+        //         },
+        //         PasswordHash = "P@ss92!LmA",
+        //         EmployeeRole = "Marketing"
+        //     },
+        //     new Employees
+        //     {
+        //         FirstName = "Samantha",
+        //         LastName = "Cole",
+        //         Email = "scole@techtracker.com",
+        //         PhoneNumber = "423-555-1012",
+        //         address = new Address
+        //         {
+        //         Street = "88 Willow Bend Ln",
+        //         City = "Kingsport",
+        //         State = "TN",
+        //         ZipCode = "37660"
+        //     },
+        //     PasswordHash = "Tg#44Lp9$Q",
+        //     EmployeeRole = "Sales Associate"
+        //     },
+        //     new Employees
+        //     {
+        //         FirstName = "Marcus",
+        //         LastName = "Hendrix",
+        //         Email = "mhendrix@techtracker.com",
+        //         PhoneNumber = "423-555-1013",
+        //         address = new Address
+        //         {
+        //             Street = "402 Cedar Hill Dr",
+        //             City = "Bristol",
+        //             State = "TN",
+        //             ZipCode = "24201"
+        //         },
+        //         PasswordHash = "Zp!82@Qw7H",
+        //         EmployeeRole = "Customer Support"
+        //     },
+        //     new Employees
+        //     {
+        //         FirstName = "Alyssa",
+        //         LastName = "Turner",
+        //         Email = "aturner@techtracker.com",
+        //         PhoneNumber = "423-555-1014",
+        //         address = new Address
+        //         {
+        //             Street = "19 Oak Crest Ct",
+        //             City = "Johnson City",
+        //             State = "TN",
+        //             ZipCode = "37604"
+        //         },
+        //         PasswordHash = "R#9fT2!Lm8",
+        //         EmployeeRole = "Supervisor"
+        //     },
+        //     new Employees
+        //     {
+        //         FirstName = "Evan",
+        //         LastName = "Mitchell",
+        //         Email = "emitchell@techtracker.com",
+        //         PhoneNumber = "423-555-1015",
+        //         address = new Address
+        //         {
+        //             Street = "501 Ridgeview Dr",
+        //             City = "Elizabethton",
+        //             State = "TN",
+        //             ZipCode = "37643"
+        //         },
+        //         PasswordHash = "Kp$33!Ht7B",
+        //         EmployeeRole = "Technician"
+        //     },
+        //     new Employees
+        //     {
+        //         FirstName = "Jenna",
+        //         LastName = "Fowler",
+        //         Email = "jfowler@techtracker.com",
+        //         PhoneNumber = "423-555-1016",
+        //         address = new Address
+        //         {
+        //             Street = "77 Birchwood Ln",
+        //             City = "Jonesborough",
+        //             State = "TN",
+        //             ZipCode = "37659"
+        //         },
+        //         PasswordHash = "M!8tQ#2LpX",
+        //         EmployeeRole = "Marketing"
+        //     },
+        //     new Employees
+        //     {
+        //         FirstName = "Caleb",
+        //         LastName = "Owens",
+        //         Email = "cowens@techtracker.com",
+        //         PhoneNumber = "423-555-1017",
+        //         address = new Address
+        //         {
+        //             Street = "310 Meadowbrook Dr",
+        //             City = "Kingsport",
+        //             State = "TN",
+        //             ZipCode = "37663"
+        //         },
+        //         PasswordHash = "S@7pL!9QwF",
+        //         EmployeeRole = "Sales Associate"
+        //     },
+        //     new Employees
+        //     {
+        //         FirstName = "Rachel",
+        //         LastName = "Benson",
+        //         Email = "rbenson@techtracker.com",
+        //         PhoneNumber = "423-555-1018",
+        //         address = new Address
+        //         {
+        //             Street = "14 Sycamore St",
+        //             City = "Johnson City",
+        //             State = "TN",
+        //             ZipCode = "37615"
+        //         },
+        //         PasswordHash = "H#4tP!8LmC",
+        //         EmployeeRole = "Customer Support"
+        //     },
+        //     new Employees
+        //     {
+        //         FirstName = "Derrick",
+        //         LastName = "Shaw",
+        //         Email = "dshaw@techtracker.com",
+        //         PhoneNumber = "423-555-1019",
+        //         address = new Address
+        //         {
+        //             Street = "221 Highland Ridge Rd",
+        //             City = "Bristol",
+        //             State = "TN",
+        //             ZipCode = "24202"
+        //         },
+        //         PasswordHash = "Qp!6T#9LmV",
+        //         EmployeeRole = "Supervisor"
+        //     },
+        //     new Employees
+        //     {
+        //         FirstName = "Megan",
+        //         LastName = "Harris",
+        //         Email = "mharris@techtracker.com",
+        //         PhoneNumber = "423-555-1020",
+        //         address = new Address
+        //         {
+        //             Street = "900 Forest View Dr",
+        //             City = "Elizabethton",
+        //             State = "TN",
+        //             ZipCode = "37643"
+        //         },
+        //         PasswordHash = "Lp#3Q!7HtB",
+        //         EmployeeRole = "Technician"
+        //     },
+        //     new Employees
+        //     {
+        //         FirstName = "Tyler",
+        //         LastName = "Grant",
+        //         Email = "tgrant@techtracker.com",
+        //         PhoneNumber = "423-555-1021",
+        //         address = new Address
+        //         {
+        //             Street = "65 Riverbend Way",
+        //             City = "Jonesborough",
+        //             State = "TN",
+        //             ZipCode = "37659"
+        //         },
+        //         PasswordHash = "W!9tP#4LmS",
+        //         EmployeeRole = "Marketing"
+        //     },
+        //     new Employees
+        //     {
+        //         FirstName = "Hailey",
+        //         LastName = "Stevens",
+        //         Email = "hstevens@techtracker.com",
+        //         PhoneNumber = "423-555-1022",
+        //         address = new Address
+        //         {
+        //             Street = "300 Brookside Dr",
+        //             City = "Kingsport",
+        //             State = "TN",
+        //             ZipCode = "37664"
+        //         },
+        //         PasswordHash = "B#2tQ!8LpM",
+        //         EmployeeRole = "Sales Associate"
+        //     },
+        //     new Employees
+        //     {
+        //         FirstName = "Jordan",
+        //         LastName = "Parker",
+        //         Email = "jparker@techtracker.com",
+        //         PhoneNumber = "423-555-1023",
+        //         address = new Address
+        //         {
+        //             Street = "48 Chestnut Hill Rd",
+        //             City = "Johnson City",
+        //             State = "TN",
+        //             ZipCode = "37601"
+        //         },
+        //         PasswordHash = "T!7pL#3QwH",
+        //         EmployeeRole = "Customer Support"
+        //     },
+        //     new Employees
+        //     {
+        //         FirstName = "Brianna",
+        //         LastName = "Knight",
+        //         Email = "bknight@techtracker.com",
+        //         PhoneNumber = "423-555-1024",
+        //         address = new Address
+        //         {
+        //             Street = "12 Meadow Lane",
+        //             City = "Bristol",
+        //             State = "TN",
+        //             ZipCode = "24201"
+        //         },
+        //         PasswordHash = "N#5tQ!9LpA",
+        //         EmployeeRole = "Supervisor"
+        //     }
+        // };
+
+        // employees.InsertMany(randomEmployees);
+        // Console.WriteLine("Employees Inserted: \n");
+        // foreach (var employee in randomEmployees)
+        // {
+        //     Console.WriteLine($"Name: {employee.FirstName} {employee.LastName}, ID: {employee._id}, Email: {employee.Email}, Role: {employee.EmployeeRole}");
+        // }
+
+        var oneInvetoryItem = new Inventory
         {
-            new Employees
-            {
-                FirstName = "Harold",
-                LastName = "Douglas",
-                Email = "harold343@techtracker.com",
-                PhoneNumber = "483-111-2003",
-                address = new Address
-                {
-                    Street = "934 Pine Dr",
-                    City = "Bristol",
-                    State = "TN",
-                    ZipCode = "24201"
-                },
-                PasswordHash = "H783*#6Hg&2",
-                EmployeeRole = "Technician"
-            },
-            new Employees
-            {
-                FirstName = "Landon",
-                LastName = "Reeves",
-                Email = "lreeves@techtracker.com",
-                PhoneNumber = "423-555-1011",
-                address = new Address
-                {
-                    Street = "120 Maple Ridge Rd",
-                    City = "Johnson City",
-                    State = "TN",
-                    ZipCode = "37601"
-                },
-                PasswordHash = "P@ss92!LmA",
-                EmployeeRole = "Marketing"
-            },
-            new Employees
-            {
-                FirstName = "Samantha",
-                LastName = "Cole",
-                Email = "scole@techtracker.com",
-                PhoneNumber = "423-555-1012",
-                address = new Address
-                {
-                Street = "88 Willow Bend Ln",
-                City = "Kingsport",
-                State = "TN",
-                ZipCode = "37660"
-            },
-            PasswordHash = "Tg#44Lp9$Q",
-            EmployeeRole = "Sales Associate"
-            },
-            new Employees
-            {
-                FirstName = "Marcus",
-                LastName = "Hendrix",
-                Email = "mhendrix@techtracker.com",
-                PhoneNumber = "423-555-1013",
-                address = new Address
-                {
-                    Street = "402 Cedar Hill Dr",
-                    City = "Bristol",
-                    State = "TN",
-                    ZipCode = "24201"
-                },
-                PasswordHash = "Zp!82@Qw7H",
-                EmployeeRole = "Customer Support"
-            },
-            new Employees
-            {
-                FirstName = "Alyssa",
-                LastName = "Turner",
-                Email = "aturner@techtracker.com",
-                PhoneNumber = "423-555-1014",
-                address = new Address
-                {
-                    Street = "19 Oak Crest Ct",
-                    City = "Johnson City",
-                    State = "TN",
-                    ZipCode = "37604"
-                },
-                PasswordHash = "R#9fT2!Lm8",
-                EmployeeRole = "Supervisor"
-            },
-            new Employees
-            {
-                FirstName = "Evan",
-                LastName = "Mitchell",
-                Email = "emitchell@techtracker.com",
-                PhoneNumber = "423-555-1015",
-                address = new Address
-                {
-                    Street = "501 Ridgeview Dr",
-                    City = "Elizabethton",
-                    State = "TN",
-                    ZipCode = "37643"
-                },
-                PasswordHash = "Kp$33!Ht7B",
-                EmployeeRole = "Technician"
-            },
-            new Employees
-            {
-                FirstName = "Jenna",
-                LastName = "Fowler",
-                Email = "jfowler@techtracker.com",
-                PhoneNumber = "423-555-1016",
-                address = new Address
-                {
-                    Street = "77 Birchwood Ln",
-                    City = "Jonesborough",
-                    State = "TN",
-                    ZipCode = "37659"
-                },
-                PasswordHash = "M!8tQ#2LpX",
-                EmployeeRole = "Marketing"
-            },
-            new Employees
-            {
-                FirstName = "Caleb",
-                LastName = "Owens",
-                Email = "cowens@techtracker.com",
-                PhoneNumber = "423-555-1017",
-                address = new Address
-                {
-                    Street = "310 Meadowbrook Dr",
-                    City = "Kingsport",
-                    State = "TN",
-                    ZipCode = "37663"
-                },
-                PasswordHash = "S@7pL!9QwF",
-                EmployeeRole = "Sales Associate"
-            },
-            new Employees
-            {
-                FirstName = "Rachel",
-                LastName = "Benson",
-                Email = "rbenson@techtracker.com",
-                PhoneNumber = "423-555-1018",
-                address = new Address
-                {
-                    Street = "14 Sycamore St",
-                    City = "Johnson City",
-                    State = "TN",
-                    ZipCode = "37615"
-                },
-                PasswordHash = "H#4tP!8LmC",
-                EmployeeRole = "Customer Support"
-            },
-            new Employees
-            {
-                FirstName = "Derrick",
-                LastName = "Shaw",
-                Email = "dshaw@techtracker.com",
-                PhoneNumber = "423-555-1019",
-                address = new Address
-                {
-                    Street = "221 Highland Ridge Rd",
-                    City = "Bristol",
-                    State = "TN",
-                    ZipCode = "24202"
-                },
-                PasswordHash = "Qp!6T#9LmV",
-                EmployeeRole = "Supervisor"
-            },
-            new Employees
-            {
-                FirstName = "Megan",
-                LastName = "Harris",
-                Email = "mharris@techtracker.com",
-                PhoneNumber = "423-555-1020",
-                address = new Address
-                {
-                    Street = "900 Forest View Dr",
-                    City = "Elizabethton",
-                    State = "TN",
-                    ZipCode = "37643"
-                },
-                PasswordHash = "Lp#3Q!7HtB",
-                EmployeeRole = "Technician"
-            },
-            new Employees
-            {
-                FirstName = "Tyler",
-                LastName = "Grant",
-                Email = "tgrant@techtracker.com",
-                PhoneNumber = "423-555-1021",
-                address = new Address
-                {
-                    Street = "65 Riverbend Way",
-                    City = "Jonesborough",
-                    State = "TN",
-                    ZipCode = "37659"
-                },
-                PasswordHash = "W!9tP#4LmS",
-                EmployeeRole = "Marketing"
-            },
-            new Employees
-            {
-                FirstName = "Hailey",
-                LastName = "Stevens",
-                Email = "hstevens@techtracker.com",
-                PhoneNumber = "423-555-1022",
-                address = new Address
-                {
-                    Street = "300 Brookside Dr",
-                    City = "Kingsport",
-                    State = "TN",
-                    ZipCode = "37664"
-                },
-                PasswordHash = "B#2tQ!8LpM",
-                EmployeeRole = "Sales Associate"
-            },
-            new Employees
-            {
-                FirstName = "Jordan",
-                LastName = "Parker",
-                Email = "jparker@techtracker.com",
-                PhoneNumber = "423-555-1023",
-                address = new Address
-                {
-                    Street = "48 Chestnut Hill Rd",
-                    City = "Johnson City",
-                    State = "TN",
-                    ZipCode = "37601"
-                },
-                PasswordHash = "T!7pL#3QwH",
-                EmployeeRole = "Customer Support"
-            },
-            new Employees
-            {
-                FirstName = "Brianna",
-                LastName = "Knight",
-                Email = "bknight@techtracker.com",
-                PhoneNumber = "423-555-1024",
-                address = new Address
-                {
-                    Street = "12 Meadow Lane",
-                    City = "Bristol",
-                    State = "TN",
-                    ZipCode = "24201"
-                },
-                PasswordHash = "N#5tQ!9LpA",
-                EmployeeRole = "Supervisor"
-            }
+            PartName = "IPhone 12 Pro Max Screen",
+            PartLocation = "Asile 1, Shelf C",
+            Stock = 20,
+            LowStockThreshold = 3,
+            Cost = 59.99,
+            CompatabilityTag = "IPhone 12 Pro Max",
+            supplier = "IFixit"
         };
 
-        employees.InsertMany(randomEmployees);
-        Console.WriteLine("Employees Inserted: \n");
-        foreach (var employee in randomEmployees)
+        inventory.InsertOne(oneInvetoryItem);
+
+        var manyInvetoryItems = new List<Inventory>
         {
-            Console.WriteLine($"Name: {employee.FirstName} {employee.LastName}, ID: {employee._id}, Email: {employee.Email}, Role: {employee.EmployeeRole}");
-        }
+            new Inventory
+            {
+                PartName = "iPhone SE (2022) Rear Camera",
+                PartLocation = "Asile 4, Shelf D",
+                Stock = 6,
+                LowStockThreshold = 3,
+                Cost = 12.99,
+                CompatabilityTag = "iPhone SE (2022)",
+                supplier = "eBay"    
+            },
+            new Inventory
+            {
+                PartName = "Apple iPhone 15 Rear Camera",
+                PartLocation = "Asile 5, Shelf A",
+                Stock = 2,
+                LowStockThreshold = 5,
+                CompatabilityTag = "Apple iPhone 15",
+                supplier = "Amazon"
+            },
+            new Inventory
+            {
+                PartName = "Google Pixel 2 Screen",
+                PartLocation = "Asile 2, Shelf A",
+                Stock = 12,
+                LowStockThreshold = 4,
+                CompatabilityTag = "Google Pixel 2",
+                supplier = "Amazon"
+            },
+            new Inventory
+            {
+                PartName = "Samsung Galaxy S21 Ultra Screen",
+                PartLocation = "Asile 1, Shelf B",
+                Stock = 5,
+                LowStockThreshold = 2,
+                Cost = 89.99,
+                CompatabilityTag = "Galaxy S21 Ultra",
+                supplier = "MobilePartsCo"
+            },
+            new Inventory
+            {
+                PartName = "Google Pixel 6 Pro Battery",
+                PartLocation = "Asile 3, Shelf C",
+                Stock = 8,
+                LowStockThreshold = 3,
+                Cost = 24.50,
+                CompatabilityTag = "Pixel 6 Pro",
+                supplier = "Amazon"
+            },
+            new Inventory
+            {
+                PartName = "OnePlus 9 Pro Charging Port",
+                PartLocation = "Asile 2, Shelf D",
+                Stock = 10,
+                LowStockThreshold = 4,
+                Cost = 9.99,
+                CompatabilityTag = "OnePlus 9 Pro",
+                supplier = "eBay"
+            },
+            new Inventory
+            {
+                PartName = "Apple iPhone 14 Pro OLED Screen",
+                PartLocation = "Asile 5, Shelf C",
+                Stock = 3,
+                LowStockThreshold = 2,
+                Cost = 189.99,
+                CompatabilityTag = "iPhone 14 Pro",
+                supplier = "MobilePartsCo"
+            },
+            new Inventory
+            {
+                PartName = "Samsung Galaxy Z Fold 4 Inner Screen",
+                PartLocation = "Asile 7, Shelf A",
+                Stock = 1,
+                LowStockThreshold = 2,
+                Cost = 349.99,
+                CompatabilityTag = "Galaxy Z Fold 4",
+                supplier = "Samsung Direct"
+            },
+            new Inventory
+            {
+                PartName = "Google Pixel 7 Rear Camera",
+                PartLocation = "Asile 3, Shelf A",
+                Stock = 7,
+                LowStockThreshold = 3,
+                Cost = 39.99,
+                CompatabilityTag = "Pixel 7",
+                supplier = "Amazon"
+            },
+            new Inventory
+            {
+                PartName = "OnePlus 11 Battery",
+                PartLocation = "Asile 2, Shelf B",
+                Stock = 9,
+                LowStockThreshold = 4,
+                Cost = 18.99,
+                CompatabilityTag = "OnePlus 11",
+                supplier = "eBay"
+            },
+            new Inventory
+            {
+                PartName = "Motorola Edge+ Screen",
+                PartLocation = "Asile 6, Shelf C",
+                Stock = 4,
+                LowStockThreshold = 2,
+                Cost = 129.99,
+                CompatabilityTag = "Motorola Edge+",
+                supplier = "MobilePartsCo"
+            },
+            new Inventory
+            {
+                PartName = "Sony Xperia 1 V Battery",
+                PartLocation = "Asile 4, Shelf A",
+                Stock = 6,
+                LowStockThreshold = 3,
+                Cost = 22.99,
+                CompatabilityTag = "Xperia 1 V",
+                supplier = "Sony Parts"
+            },
+            new Inventory
+            {
+                PartName = "Apple iPhone 13 Charging Port",
+                PartLocation = "Asile 5, Shelf D",
+                Stock = 11,
+                LowStockThreshold = 4,
+                Cost = 14.99,
+                CompatabilityTag = "iPhone 13",
+                supplier = "Amazon"
+            },
+            new Inventory
+            {
+                PartName = "Samsung Galaxy S22 Rear Camera",
+                PartLocation = "Asile 1, Shelf C",
+                Stock = 5,
+                LowStockThreshold = 2,
+                Cost = 49.99,
+                CompatabilityTag = "Galaxy S22",
+                supplier = "Samsung Direct"
+            },
+            new Inventory
+            {
+                PartName = "Google Pixel 6a Screen",
+                PartLocation = "Asile 3, Shelf B",
+                Stock = 8,
+                LowStockThreshold = 3,
+                Cost = 79.99,
+                CompatabilityTag = "Pixel 6a",
+                supplier = "Amazon"
+            },
+            new Inventory
+            {
+                PartName = "OnePlus Nord N20 Battery",
+                PartLocation = "Asile 2, Shelf C",
+                Stock = 10,
+                LowStockThreshold = 4,
+                Cost = 16.99,
+                CompatabilityTag = "Nord N20",
+                supplier = "eBay"
+            },
+            new Inventory
+            {
+                PartName = "Apple iPhone SE (2022) Screen",
+                PartLocation = "Asile 4, Shelf B",
+                Stock = 7,
+                LowStockThreshold = 3,
+                Cost = 49.99,
+                CompatabilityTag = "iPhone SE (2022)",
+                supplier = "Amazon"
+            },
+            new Inventory
+            {
+                PartName = "Samsung Galaxy A53 Battery",
+                PartLocation = "Asile 1, Shelf D",
+                Stock = 12,
+                LowStockThreshold = 5,
+                Cost = 19.99,
+                CompatabilityTag = "Galaxy A53",
+                supplier = "MobilePartsCo"
+            },
+            new Inventory
+            {
+                PartName = "Google Pixel 5 Rear Camera",
+                PartLocation = "Asile 3, Shelf D",
+                Stock = 6,
+                LowStockThreshold = 3,
+                Cost = 29.99,
+                CompatabilityTag = "Pixel 5",
+                supplier = "Amazon"
+            },
+            new Inventory
+            {
+                PartName = "Sony Xperia 5 IV Screen",
+                PartLocation = "Asile 4, Shelf C",
+                Stock = 3,
+                LowStockThreshold = 2,
+                Cost = 139.99,
+                CompatabilityTag = "Xperia 5 IV",
+                supplier = "Sony Parts"
+            },
+            new Inventory
+            {
+                PartName = "Motorola Moto G Power Charging Port",
+                PartLocation = "Asile 6, Shelf A",
+                Stock = 14,
+                LowStockThreshold = 5,
+                Cost = 8.99,
+                CompatabilityTag = "Moto G Power",
+                supplier = "eBay"
+            },
+            new Inventory
+            {
+                PartName = "Apple iPhone 12 Pro Max Battery",
+                PartLocation = "Asile 5, Shelf B",
+                Stock = 5,
+                LowStockThreshold = 2,
+                Cost = 29.99,
+                CompatabilityTag = "iPhone 12 Pro Max",
+                supplier = "Amazon"
+            }
+        }; 
     } 
 }
 
@@ -955,7 +1189,7 @@ public class Inventory
     public int LowStockThreshold { get; set; }
     public double Cost { get; set; }
     public string CompatabilityTag { get; set; } = "";
-
+    public string supplier { get; set; } = "";
 }
 
 public class RepairOrders
