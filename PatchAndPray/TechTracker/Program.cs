@@ -2,6 +2,7 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using DotNetEnv;
+using System.ComponentModel.DataAnnotations;
 
 namespace TechTracker;
 
@@ -897,324 +898,345 @@ class Program
         //     Console.WriteLine($"Name: {employee.FirstName} {employee.LastName}, ID: {employee._id}, Email: {employee.Email}, Role: {employee.EmployeeRole}");
         // }
 
-        var oneInvetoryItem = new Inventory
-        {
-            PartName = "IPhone 12 Pro Max Screen",
-            PartLocation = "Asile 1, Shelf C",
-            Stock = 20,
-            LowStockThreshold = 3,
-            Cost = 59.99,
-            CompatabilityTag = "IPhone 12 Pro Max",
-            supplier = "IFixit"
-        };
+        // var oneInvetoryItem = new Inventory
+        // {
+        //     PartName = "IPhone 12 Pro Max Screen",
+        //     PartLocation = "Asile 1, Shelf C",
+        //     Stock = 20,
+        //     LowStockThreshold = 3,
+        //     Cost = 59.99,
+        //     CompatabilityTag = "IPhone 12 Pro Max",
+        //     supplier = "IFixit"
+        // };
 
-        inventory.InsertOne(oneInvetoryItem);
+        // inventory.InsertOne(oneInvetoryItem);
 
-        var manyInvetoryItems = new List<Inventory>
+        // var manyInvetoryItems = new List<Inventory>
+        // {
+        //     new Inventory
+        //     {
+        //         PartName = "iPhone SE (2022) Rear Camera",
+        //         PartLocation = "Asile 4, Shelf D",
+        //         Stock = 6,
+        //         LowStockThreshold = 3,
+        //         Cost = 12.99,
+        //         CompatabilityTag = "iPhone SE (2022)",
+        //         supplier = "eBay"    
+        //     },
+        //     new Inventory
+        //     {
+        //         PartName = "Apple iPhone 15 Rear Camera",
+        //         PartLocation = "Asile 5, Shelf A",
+        //         Stock = 2,
+        //         LowStockThreshold = 5,
+        //         CompatabilityTag = "Apple iPhone 15",
+        //         supplier = "Amazon"
+        //     },
+        //     new Inventory
+        //     {
+        //         PartName = "Google Pixel 2 Screen",
+        //         PartLocation = "Asile 2, Shelf A",
+        //         Stock = 12,
+        //         LowStockThreshold = 4,
+        //         CompatabilityTag = "Google Pixel 2",
+        //         supplier = "Amazon"
+        //     },
+        //     new Inventory
+        //     {
+        //         PartName = "Samsung Galaxy S21 Ultra Screen",
+        //         PartLocation = "Asile 1, Shelf B",
+        //         Stock = 5,
+        //         LowStockThreshold = 2,
+        //         Cost = 89.99,
+        //         CompatabilityTag = "Galaxy S21 Ultra",
+        //         supplier = "MobilePartsCo"
+        //     },
+        //     new Inventory
+        //     {
+        //         PartName = "Google Pixel 6 Pro Battery",
+        //         PartLocation = "Asile 3, Shelf C",
+        //         Stock = 8,
+        //         LowStockThreshold = 3,
+        //         Cost = 24.50,
+        //         CompatabilityTag = "Pixel 6 Pro",
+        //         supplier = "Amazon"
+        //     },
+        //     new Inventory
+        //     {
+        //         PartName = "OnePlus 9 Pro Charging Port",
+        //         PartLocation = "Asile 2, Shelf D",
+        //         Stock = 10,
+        //         LowStockThreshold = 4,
+        //         Cost = 9.99,
+        //         CompatabilityTag = "OnePlus 9 Pro",
+        //         supplier = "eBay"
+        //     },
+        //     new Inventory
+        //     {
+        //         PartName = "Apple iPhone 14 Pro OLED Screen",
+        //         PartLocation = "Asile 5, Shelf C",
+        //         Stock = 3,
+        //         LowStockThreshold = 2,
+        //         Cost = 189.99,
+        //         CompatabilityTag = "iPhone 14 Pro",
+        //         supplier = "MobilePartsCo"
+        //     },
+        //     new Inventory
+        //     {
+        //         PartName = "Samsung Galaxy Z Fold 4 Inner Screen",
+        //         PartLocation = "Asile 7, Shelf A",
+        //         Stock = 1,
+        //         LowStockThreshold = 2,
+        //         Cost = 349.99,
+        //         CompatabilityTag = "Galaxy Z Fold 4",
+        //         supplier = "Samsung Direct"
+        //     },
+        //     new Inventory
+        //     {
+        //         PartName = "Google Pixel 7 Rear Camera",
+        //         PartLocation = "Asile 3, Shelf A",
+        //         Stock = 7,
+        //         LowStockThreshold = 3,
+        //         Cost = 39.99,
+        //         CompatabilityTag = "Pixel 7",
+        //         supplier = "Amazon"
+        //     },
+        //     new Inventory
+        //     {
+        //         PartName = "OnePlus 11 Battery",
+        //         PartLocation = "Asile 2, Shelf B",
+        //         Stock = 9,
+        //         LowStockThreshold = 4,
+        //         Cost = 18.99,
+        //         CompatabilityTag = "OnePlus 11",
+        //         supplier = "eBay"
+        //     },
+        //     new Inventory
+        //     {
+        //         PartName = "Motorola Edge+ Screen",
+        //         PartLocation = "Asile 6, Shelf C",
+        //         Stock = 4,
+        //         LowStockThreshold = 2,
+        //         Cost = 129.99,
+        //         CompatabilityTag = "Motorola Edge+",
+        //         supplier = "MobilePartsCo"
+        //     },
+        //     new Inventory
+        //     {
+        //         PartName = "Sony Xperia 1 V Battery",
+        //         PartLocation = "Asile 4, Shelf A",
+        //         Stock = 6,
+        //         LowStockThreshold = 3,
+        //         Cost = 22.99,
+        //         CompatabilityTag = "Xperia 1 V",
+        //         supplier = "Sony Parts"
+        //     },
+        //     new Inventory
+        //     {
+        //         PartName = "Apple iPhone 13 Charging Port",
+        //         PartLocation = "Asile 5, Shelf D",
+        //         Stock = 11,
+        //         LowStockThreshold = 4,
+        //         Cost = 14.99,
+        //         CompatabilityTag = "iPhone 13",
+        //         supplier = "Amazon"
+        //     },
+        //     new Inventory
+        //     {
+        //         PartName = "Samsung Galaxy S22 Rear Camera",
+        //         PartLocation = "Asile 1, Shelf C",
+        //         Stock = 5,
+        //         LowStockThreshold = 2,
+        //         Cost = 49.99,
+        //         CompatabilityTag = "Galaxy S22",
+        //         supplier = "Samsung Direct"
+        //     },
+        //     new Inventory
+        //     {
+        //         PartName = "Google Pixel 6a Screen",
+        //         PartLocation = "Asile 3, Shelf B",
+        //         Stock = 8,
+        //         LowStockThreshold = 3,
+        //         Cost = 79.99,
+        //         CompatabilityTag = "Pixel 6a",
+        //         supplier = "Amazon"
+        //     },
+        //     new Inventory
+        //     {
+        //         PartName = "OnePlus Nord N20 Battery",
+        //         PartLocation = "Asile 2, Shelf C",
+        //         Stock = 10,
+        //         LowStockThreshold = 4,
+        //         Cost = 16.99,
+        //         CompatabilityTag = "Nord N20",
+        //         supplier = "eBay"
+        //     },
+        //     new Inventory
+        //     {
+        //         PartName = "Apple iPhone SE (2022) Screen",
+        //         PartLocation = "Asile 4, Shelf B",
+        //         Stock = 7,
+        //         LowStockThreshold = 3,
+        //         Cost = 49.99,
+        //         CompatabilityTag = "iPhone SE (2022)",
+        //         supplier = "Amazon"
+        //     },
+        //     new Inventory
+        //     {
+        //         PartName = "Samsung Galaxy A53 Battery",
+        //         PartLocation = "Asile 1, Shelf D",
+        //         Stock = 12,
+        //         LowStockThreshold = 5,
+        //         Cost = 19.99,
+        //         CompatabilityTag = "Galaxy A53",
+        //         supplier = "MobilePartsCo"
+        //     },
+        //     new Inventory
+        //     {
+        //         PartName = "Google Pixel 5 Rear Camera",
+        //         PartLocation = "Asile 3, Shelf D",
+        //         Stock = 6,
+        //         LowStockThreshold = 3,
+        //         Cost = 29.99,
+        //         CompatabilityTag = "Pixel 5",
+        //         supplier = "Amazon"
+        //     },
+        //     new Inventory
+        //     {
+        //         PartName = "Sony Xperia 5 IV Screen",
+        //         PartLocation = "Asile 4, Shelf C",
+        //         Stock = 3,
+        //         LowStockThreshold = 2,
+        //         Cost = 139.99,
+        //         CompatabilityTag = "Xperia 5 IV",
+        //         supplier = "Sony Parts"
+        //     },
+        //     new Inventory
+        //     {
+        //         PartName = "Motorola Moto G Power Charging Port",
+        //         PartLocation = "Asile 6, Shelf A",
+        //         Stock = 14,
+        //         LowStockThreshold = 5,
+        //         Cost = 8.99,
+        //         CompatabilityTag = "Moto G Power",
+        //         supplier = "eBay"
+        //     },
+        //     new Inventory
+        //     {
+        //         PartName = "Apple iPhone 12 Pro Max Battery",
+        //         PartLocation = "Asile 5, Shelf B",
+        //         Stock = 5,
+        //         LowStockThreshold = 2,
+        //         Cost = 29.99,
+        //         CompatabilityTag = "iPhone 12 Pro Max",
+        //         supplier = "Amazon"
+        //     }
+        // };
+
+        // var oneTransaction = new Transactions
+        // {
+        //     OrderId = ObjectId.Parse("69e81949a408d5b688112f33"),
+        //     Cost = 76.99,
+        //     PaymentMethod = "Cash",
+        //     Date = DateOnly.FromDateTime(new DateTime(2025, 4, 12)),
+        //     Completed = true
+        // };
+
+        // transactions.InsertOne(oneTransaction);
+        // Console.WriteLine("Transaction Inserted: \n");
+        // Console.WriteLine($" Order ID: {oneTransaction._id}, Cost: {oneTransaction.Cost}, Form Of Payment: {oneTransaction.PaymentMethod}, Date Of Transaction: {oneTransaction.Date}");
+
+        var manyTransactions = new List<Transactions>
         {
-            new Inventory
+            new Transactions
             {
-                PartName = "iPhone SE (2022) Rear Camera",
-                PartLocation = "Asile 4, Shelf D",
-                Stock = 6,
-                LowStockThreshold = 3,
-                Cost = 12.99,
-                CompatabilityTag = "iPhone SE (2022)",
-                supplier = "eBay"    
+                OrderId = ObjectId.Parse("69eacb2cbcfb29429c45793d"),
+                Cost = 98.45,
+                PaymentMethod = "Credit Card",
+                Date = DateOnly.FromDateTime(DateTime.Now),
+                Completed = false       
             },
-            new Inventory
+            new Transactions
             {
-                PartName = "Apple iPhone 15 Rear Camera",
-                PartLocation = "Asile 5, Shelf A",
-                Stock = 2,
-                LowStockThreshold = 5,
-                CompatabilityTag = "Apple iPhone 15",
-                supplier = "Amazon"
+                OrderId = ObjectId.Parse("69ebe0b8f3d4f87213c7e779"),
+                Cost = 58.95,
+                PaymentMethod = "Credit Card",
+                Date = DateOnly.FromDateTime(new DateTime(2024, 8, 10)),
+                Completed = true
             },
-            new Inventory
+            new Transactions
             {
-                PartName = "Google Pixel 2 Screen",
-                PartLocation = "Asile 2, Shelf A",
-                Stock = 12,
-                LowStockThreshold = 4,
-                CompatabilityTag = "Google Pixel 2",
-                supplier = "Amazon"
+                OrderId = ObjectId.Parse("69e81dd9271df5d6cb27de77"),
+                Cost = 42.15,
+                PaymentMethod = "Cash",
+                Date = DateOnly.FromDateTime(new DateTime(2024, 7, 14)),
+                Completed = true
             },
-            new Inventory
+            new Transactions
             {
-                PartName = "Samsung Galaxy S21 Ultra Screen",
-                PartLocation = "Asile 1, Shelf B",
-                Stock = 5,
-                LowStockThreshold = 2,
-                Cost = 89.99,
-                CompatabilityTag = "Galaxy S21 Ultra",
-                supplier = "MobilePartsCo"
-            },
-            new Inventory
-            {
-                PartName = "Google Pixel 6 Pro Battery",
-                PartLocation = "Asile 3, Shelf C",
-                Stock = 8,
-                LowStockThreshold = 3,
-                Cost = 24.50,
-                CompatabilityTag = "Pixel 6 Pro",
-                supplier = "Amazon"
-            },
-            new Inventory
-            {
-                PartName = "OnePlus 9 Pro Charging Port",
-                PartLocation = "Asile 2, Shelf D",
-                Stock = 10,
-                LowStockThreshold = 4,
-                Cost = 9.99,
-                CompatabilityTag = "OnePlus 9 Pro",
-                supplier = "eBay"
-            },
-            new Inventory
-            {
-                PartName = "Apple iPhone 14 Pro OLED Screen",
-                PartLocation = "Asile 5, Shelf C",
-                Stock = 3,
-                LowStockThreshold = 2,
-                Cost = 189.99,
-                CompatabilityTag = "iPhone 14 Pro",
-                supplier = "MobilePartsCo"
-            },
-            new Inventory
-            {
-                PartName = "Samsung Galaxy Z Fold 4 Inner Screen",
-                PartLocation = "Asile 7, Shelf A",
-                Stock = 1,
-                LowStockThreshold = 2,
-                Cost = 349.99,
-                CompatabilityTag = "Galaxy Z Fold 4",
-                supplier = "Samsung Direct"
-            },
-            new Inventory
-            {
-                PartName = "Google Pixel 7 Rear Camera",
-                PartLocation = "Asile 3, Shelf A",
-                Stock = 7,
-                LowStockThreshold = 3,
-                Cost = 39.99,
-                CompatabilityTag = "Pixel 7",
-                supplier = "Amazon"
-            },
-            new Inventory
-            {
-                PartName = "OnePlus 11 Battery",
-                PartLocation = "Asile 2, Shelf B",
-                Stock = 9,
-                LowStockThreshold = 4,
-                Cost = 18.99,
-                CompatabilityTag = "OnePlus 11",
-                supplier = "eBay"
-            },
-            new Inventory
-            {
-                PartName = "Motorola Edge+ Screen",
-                PartLocation = "Asile 6, Shelf C",
-                Stock = 4,
-                LowStockThreshold = 2,
+                OrderId = ObjectId.Parse("69e81dd9271df5d6cb27de76"),
                 Cost = 129.99,
-                CompatabilityTag = "Motorola Edge+",
-                supplier = "MobilePartsCo"
+                PaymentMethod = "Debit Card",
+                Date = DateOnly.FromDateTime(new DateTime(2024, 6, 22)),
+                Completed = false
             },
-            new Inventory
+            new Transactions
             {
-                PartName = "Sony Xperia 1 V Battery",
-                PartLocation = "Asile 4, Shelf A",
-                Stock = 6,
-                LowStockThreshold = 3,
-                Cost = 22.99,
-                CompatabilityTag = "Xperia 1 V",
-                supplier = "Sony Parts"
+                OrderId = ObjectId.Parse("69e81dd9271df5d6cb27de78"),
+                Cost = 15.49,
+                PaymentMethod = "Cash",
+                Date = DateOnly.FromDateTime(new DateTime(2024, 5, 3)),
+                Completed = true
             },
-            new Inventory
+            new Transactions
             {
-                PartName = "Apple iPhone 13 Charging Port",
-                PartLocation = "Asile 5, Shelf D",
-                Stock = 11,
-                LowStockThreshold = 4,
-                Cost = 14.99,
-                CompatabilityTag = "iPhone 13",
-                supplier = "Amazon"
+                OrderId = ObjectId.Parse("69ea9eb95f5d20e2540db243"),
+                Cost = 210.75,
+                PaymentMethod = "Credit Card",
+                Date = DateOnly.FromDateTime(new DateTime(2024, 9, 1)),
+                Completed = true
             },
-            new Inventory
+            new Transactions
             {
-                PartName = "Samsung Galaxy S22 Rear Camera",
-                PartLocation = "Asile 1, Shelf C",
-                Stock = 5,
-                LowStockThreshold = 2,
-                Cost = 49.99,
-                CompatabilityTag = "Galaxy S22",
-                supplier = "Samsung Direct"
+                OrderId = ObjectId.Parse("69eaa0b75f5d20e2540db24b"),
+                Cost = 67.30,
+                PaymentMethod = "Debit Card",
+                Date = DateOnly.FromDateTime(new DateTime(2024, 9, 12)),
+                Completed = false
             },
-            new Inventory
+            new Transactions
             {
-                PartName = "Google Pixel 6a Screen",
-                PartLocation = "Asile 3, Shelf B",
-                Stock = 8,
-                LowStockThreshold = 3,
-                Cost = 79.99,
-                CompatabilityTag = "Pixel 6a",
-                supplier = "Amazon"
+                OrderId = ObjectId.Parse("69eacaf5bcfb29429c457937"),
+                Cost = 89.99,
+                PaymentMethod = "Credit Card",
+                Date = DateOnly.FromDateTime(new DateTime(2024, 10, 2)),
+                Completed = true
             },
-            new Inventory
+            new Transactions
             {
-                PartName = "OnePlus Nord N20 Battery",
-                PartLocation = "Asile 2, Shelf C",
-                Stock = 10,
-                LowStockThreshold = 4,
-                Cost = 16.99,
-                CompatabilityTag = "Nord N20",
-                supplier = "eBay"
+                OrderId = ObjectId.Parse("69eacb00bcfb29429c457939"),
+                Cost = 34.60,
+                PaymentMethod = "Cash",
+                Date = DateOnly.FromDateTime(new DateTime(2024, 10, 5)),
+                Completed = false
             },
-            new Inventory
+            new Transactions
             {
-                PartName = "Apple iPhone SE (2022) Screen",
-                PartLocation = "Asile 4, Shelf B",
-                Stock = 7,
-                LowStockThreshold = 3,
-                Cost = 49.99,
-                CompatabilityTag = "iPhone SE (2022)",
-                supplier = "Amazon"
+                OrderId = ObjectId.Parse("69eacb14bcfb29429c45793b"),
+                Cost = 145.20,
+                PaymentMethod = "Debit Card",
+                Date = DateOnly.FromDateTime(new DateTime(2024, 10, 7)),
+                Completed = true
             },
-            new Inventory
-            {
-                PartName = "Samsung Galaxy A53 Battery",
-                PartLocation = "Asile 1, Shelf D",
-                Stock = 12,
-                LowStockThreshold = 5,
-                Cost = 19.99,
-                CompatabilityTag = "Galaxy A53",
-                supplier = "MobilePartsCo"
-            },
-            new Inventory
-            {
-                PartName = "Google Pixel 5 Rear Camera",
-                PartLocation = "Asile 3, Shelf D",
-                Stock = 6,
-                LowStockThreshold = 3,
-                Cost = 29.99,
-                CompatabilityTag = "Pixel 5",
-                supplier = "Amazon"
-            },
-            new Inventory
-            {
-                PartName = "Sony Xperia 5 IV Screen",
-                PartLocation = "Asile 4, Shelf C",
-                Stock = 3,
-                LowStockThreshold = 2,
-                Cost = 139.99,
-                CompatabilityTag = "Xperia 5 IV",
-                supplier = "Sony Parts"
-            },
-            new Inventory
-            {
-                PartName = "Motorola Moto G Power Charging Port",
-                PartLocation = "Asile 6, Shelf A",
-                Stock = 14,
-                LowStockThreshold = 5,
-                Cost = 8.99,
-                CompatabilityTag = "Moto G Power",
-                supplier = "eBay"
-            },
-            new Inventory
-            {
-                PartName = "Apple iPhone 12 Pro Max Battery",
-                PartLocation = "Asile 5, Shelf B",
-                Stock = 5,
-                LowStockThreshold = 2,
-                Cost = 29.99,
-                CompatabilityTag = "iPhone 12 Pro Max",
-                supplier = "Amazon"
-            }
         }; 
+
+        transactions.InsertMany(manyTransactions);
+        Console.WriteLine("Transaction Doucuments Inserted:");
+        Console.WriteLine("\n------------------------------------------");
+        foreach (var transaction in manyTransactions)
+        {
+            Console.WriteLine($"\n Order ID: {transaction.OrderId}\n Cost: {transaction.Cost}\n Form Of Payment {transaction.PaymentMethod}\n Date Of Transaction: {transaction.Date}");
+        }
+        Console.WriteLine("\n-------------------------------------------");
     } 
-}
-
-public class Customer
-{
-    [BsonId]
-    public ObjectId _id { get; set; } = ObjectId.GenerateNewId();
-    public string FirstName { get; set; } = "";
-    public string LastName { get; set; } = "";
-    public string Email { get; set; } = "";
-    public string Phone { get; set; } = "";
-    public DateOnly CreationDate { get; set; }
-}
-
-public class Devices
-{
-    [BsonId]
-    public ObjectId _id { get; set; } = ObjectId.GenerateNewId();
-    public ObjectId CustomerId { get; set; }
-    public string Brand { get; set; } = "";
-    public string Model { get; set; } = "";
-    public string SerialNumber { get; set; } = "";
-    public bool underWarranty { get; set; }
-}
-
-public class Employees
-{
-    [BsonId]
-    public ObjectId _id { get; set; } = ObjectId.GenerateNewId();
-    public string FirstName { get; set; } = "";
-    public string LastName { get; set; } = "";
-    public string Email { get; set; } = "";
-    public string PhoneNumber { get; set; } = "";
-    public Address address { get; set; } = new Address();
-    public string PasswordHash { get; set; } = "";
-    public string EmployeeRole { get; set; } = "";
-
-   
-}
-
-public class Address
-{
-    public string Street { get; set; } = "";
-    public string City { get; set; } = "";
-    public string State { get; set; } = "";
-    public string ZipCode { get; set; } = "";
-}
-
-public class Inventory
-{
-    [BsonId]
-    public ObjectId _id { get; set; } = ObjectId.GenerateNewId();
-    public string PartName { get; set; } = "";
-    public string PartLocation { get; set; } = "";
-    public int Stock { get; set; }
-    public int LowStockThreshold { get; set; }
-    public double Cost { get; set; }
-    public string CompatabilityTag { get; set; } = "";
-    public string supplier { get; set; } = "";
-}
-
-public class RepairOrders
-{
-    [BsonId]
-    public ObjectId _id { get; set; } = ObjectId.GenerateNewId();
-    public ObjectId CustomerId { get; set; }
-    public ObjectId DeviceId { get; set; }
-    public List<ObjectId> AssignedEmployeeId { get; set; } = new List<ObjectId>();
-    public string Status { get; set; } = "";
-    public int HoursBillable { get; set; }
-    public string PartsUsed { get; set; } = "";
-    public string Notes { get; set; } = "";
-    public DateTime CreationDate { get; set; }
-    public DateTime UpdateDate { get; set; }
-    public DateTime? CompletionDate { get; set; }
-}
-
-public class Transactions
-{
-    [BsonId]
-    public ObjectId _id { get; set; } = ObjectId.GenerateNewId();
-    public ObjectId OrderId { get; set; }
-    public double Cost { get; set; }
-    public string PaymentMethod { get; set; } = "";
-    public DateOnly Date { get; set; }
-    public bool Completed { get; set; }
 }
