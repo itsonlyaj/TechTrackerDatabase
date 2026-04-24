@@ -14,7 +14,7 @@ class Program
 
         // MongoDB connection string with credentials   
              
-        const string connectionString = "mongodb+srv://db_woodwarda1:AJWoods-AUG!2300@cluster.vkiam1i.mongodb.net/?appName=Cluster";
+        const string connectionString = "Your_Connection_String";
         var client = new MongoClient(connectionString);
 
         // Access the "TechTracker" database and its collections
