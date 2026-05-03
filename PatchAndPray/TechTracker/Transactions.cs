@@ -1,10 +1,10 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
+[BsonIgnoreExtraElements]
 public class Transactions
 {
-    [BsonId]
-    public ObjectId _id { get; set; } = ObjectId.GenerateNewId();
+    public ObjectId _id { get; set; }
     public ObjectId OrderId { get; set; }
     public double Cost { get; set; }
     public string PaymentMethod { get; set; } = "";

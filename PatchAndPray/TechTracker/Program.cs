@@ -3,6 +3,7 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using DotNetEnv;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.VisualBasic;
 
 namespace TechTracker;
 
@@ -14,7 +15,7 @@ class Program
 
         // MongoDB connection string with credentials   
              
-        const string connectionString = "Your_Connection_String";
+        const string connectionString = "mongodb+srv://db_woodwarda1:AJWoods-AUG!2300@cluster.vkiam1i.mongodb.net/?appName=Cluster";
         var client = new MongoClient(connectionString);
 
         // Access the "TechTracker" database and its collections
@@ -1146,97 +1147,149 @@ class Program
         // Console.WriteLine("Transaction Inserted: \n");
         // Console.WriteLine($" Order ID: {oneTransaction._id}, Cost: {oneTransaction.Cost}, Form Of Payment: {oneTransaction.PaymentMethod}, Date Of Transaction: {oneTransaction.Date}");
 
-        var manyTransactions = new List<Transactions>
-        {
-            new Transactions
-            {
-                OrderId = ObjectId.Parse("69eacb2cbcfb29429c45793d"),
-                Cost = 98.45,
-                PaymentMethod = "Credit Card",
-                Date = DateOnly.FromDateTime(DateTime.Now),
-                Completed = false       
-            },
-            new Transactions
-            {
-                OrderId = ObjectId.Parse("69ebe0b8f3d4f87213c7e779"),
-                Cost = 58.95,
-                PaymentMethod = "Credit Card",
-                Date = DateOnly.FromDateTime(new DateTime(2024, 8, 10)),
-                Completed = true
-            },
-            new Transactions
-            {
-                OrderId = ObjectId.Parse("69e81dd9271df5d6cb27de77"),
-                Cost = 42.15,
-                PaymentMethod = "Cash",
-                Date = DateOnly.FromDateTime(new DateTime(2024, 7, 14)),
-                Completed = true
-            },
-            new Transactions
-            {
-                OrderId = ObjectId.Parse("69e81dd9271df5d6cb27de76"),
-                Cost = 129.99,
-                PaymentMethod = "Debit Card",
-                Date = DateOnly.FromDateTime(new DateTime(2024, 6, 22)),
-                Completed = false
-            },
-            new Transactions
-            {
-                OrderId = ObjectId.Parse("69e81dd9271df5d6cb27de78"),
-                Cost = 15.49,
-                PaymentMethod = "Cash",
-                Date = DateOnly.FromDateTime(new DateTime(2024, 5, 3)),
-                Completed = true
-            },
-            new Transactions
-            {
-                OrderId = ObjectId.Parse("69ea9eb95f5d20e2540db243"),
-                Cost = 210.75,
-                PaymentMethod = "Credit Card",
-                Date = DateOnly.FromDateTime(new DateTime(2024, 9, 1)),
-                Completed = true
-            },
-            new Transactions
-            {
-                OrderId = ObjectId.Parse("69eaa0b75f5d20e2540db24b"),
-                Cost = 67.30,
-                PaymentMethod = "Debit Card",
-                Date = DateOnly.FromDateTime(new DateTime(2024, 9, 12)),
-                Completed = false
-            },
-            new Transactions
-            {
-                OrderId = ObjectId.Parse("69eacaf5bcfb29429c457937"),
-                Cost = 89.99,
-                PaymentMethod = "Credit Card",
-                Date = DateOnly.FromDateTime(new DateTime(2024, 10, 2)),
-                Completed = true
-            },
-            new Transactions
-            {
-                OrderId = ObjectId.Parse("69eacb00bcfb29429c457939"),
-                Cost = 34.60,
-                PaymentMethod = "Cash",
-                Date = DateOnly.FromDateTime(new DateTime(2024, 10, 5)),
-                Completed = false
-            },
-            new Transactions
-            {
-                OrderId = ObjectId.Parse("69eacb14bcfb29429c45793b"),
-                Cost = 145.20,
-                PaymentMethod = "Debit Card",
-                Date = DateOnly.FromDateTime(new DateTime(2024, 10, 7)),
-                Completed = true
-            },
-        }; 
+        // var manyTransactions = new List<Transactions>
+        // {
+        //     new Transactions
+        //     {
+        //         OrderId = ObjectId.Parse("69eacb2cbcfb29429c45793d"),
+        //         Cost = 98.45,
+        //         PaymentMethod = "Credit Card",
+        //         Date = DateOnly.FromDateTime(DateTime.Now),
+        //         Completed = false       
+        //     },
+        //     new Transactions
+        //     {
+        //         OrderId = ObjectId.Parse("69ebe0b8f3d4f87213c7e779"),
+        //         Cost = 58.95,
+        //         PaymentMethod = "Credit Card",
+        //         Date = DateOnly.FromDateTime(new DateTime(2024, 8, 10)),
+        //         Completed = true
+        //     },
+        //     new Transactions
+        //     {
+        //         OrderId = ObjectId.Parse("69e81dd9271df5d6cb27de77"),
+        //         Cost = 42.15,
+        //         PaymentMethod = "Cash",
+        //         Date = DateOnly.FromDateTime(new DateTime(2024, 7, 14)),
+        //         Completed = true
+        //     },
+        //     new Transactions
+        //     {
+        //         OrderId = ObjectId.Parse("69e81dd9271df5d6cb27de76"),
+        //         Cost = 129.99,
+        //         PaymentMethod = "Debit Card",
+        //         Date = DateOnly.FromDateTime(new DateTime(2024, 6, 22)),
+        //         Completed = false
+        //     },
+        //     new Transactions
+        //     {
+        //         OrderId = ObjectId.Parse("69e81dd9271df5d6cb27de78"),
+        //         Cost = 15.49,
+        //         PaymentMethod = "Cash",
+        //         Date = DateOnly.FromDateTime(new DateTime(2024, 5, 3)),
+        //         Completed = true
+        //     },
+        //     new Transactions
+        //     {
+        //         OrderId = ObjectId.Parse("69ea9eb95f5d20e2540db243"),
+        //         Cost = 210.75,
+        //         PaymentMethod = "Credit Card",
+        //         Date = DateOnly.FromDateTime(new DateTime(2024, 9, 1)),
+        //         Completed = true
+        //     },
+        //     new Transactions
+        //     {
+        //         OrderId = ObjectId.Parse("69eaa0b75f5d20e2540db24b"),
+        //         Cost = 67.30,
+        //         PaymentMethod = "Debit Card",
+        //         Date = DateOnly.FromDateTime(new DateTime(2024, 9, 12)),
+        //         Completed = false
+        //     },
+        //     new Transactions
+        //     {
+        //         OrderId = ObjectId.Parse("69eacaf5bcfb29429c457937"),
+        //         Cost = 89.99,
+        //         PaymentMethod = "Credit Card",
+        //         Date = DateOnly.FromDateTime(new DateTime(2024, 10, 2)),
+        //         Completed = true
+        //     },
+        //     new Transactions
+        //     {
+        //         OrderId = ObjectId.Parse("69eacb00bcfb29429c457939"),
+        //         Cost = 34.60,
+        //         PaymentMethod = "Cash",
+        //         Date = DateOnly.FromDateTime(new DateTime(2024, 10, 5)),
+        //         Completed = false
+        //     },
+        //     new Transactions
+        //     {
+        //         OrderId = ObjectId.Parse("69eacb14bcfb29429c45793b"),
+        //         Cost = 145.20,
+        //         PaymentMethod = "Debit Card",
+        //         Date = DateOnly.FromDateTime(new DateTime(2024, 10, 7)),
+        //         Completed = true
+        //     },
+        // }; 
 
-        transactions.InsertMany(manyTransactions);
-        Console.WriteLine("Transaction Doucuments Inserted:");
-        Console.WriteLine("\n------------------------------------------");
-        foreach (var transaction in manyTransactions)
+        // transactions.InsertMany(manyTransactions);
+        // Console.WriteLine("Transaction Doucuments Inserted:");
+        // Console.WriteLine("\n------------------------------------------");
+        // foreach (var transaction in manyTransactions)
+        // {
+        //     Console.WriteLine($"\n Order ID: {transaction.OrderId}\n Cost: {transaction.Cost}\n Form Of Payment {transaction.PaymentMethod}\n Date Of Transaction: {transaction.Date}");
+        // }
+        // Console.WriteLine("\n-------------------------------------------");
+
+        // Searches for each employee who's role is a techician.
+
+        // var manyTechnicans = employees.Find(e => e.EmployeeRole == "Technician").ToList();
+        // Console.WriteLine("Techicians:");
+        // foreach (var t in manyTechnicans)
+        // {
+        //     Console.WriteLine("-------------------------------------------");
+        //     Console.WriteLine($"Name: {t.FirstName} {t.LastName}\n Employee ID: {t._id}\n Role: {t.EmployeeRole}\n");
+        //     Console.WriteLine("-------------------------------------------");
+        // }
+
+        // Will look for a specfic serial number for the device, and will update its warranity to false.
+
+        // var filter = Builders<Devices>.Filter.Eq(d => d.SerialNumber, "SN1234567890");
+        // var update = Builders<Devices>.Update.Set(d => d.underWarranty, false);     
+
+        // devices.UpdateOne(filter,update);   // Will update once the serial number is found.
+        // Console.WriteLine("Devices warranty has been set to false");
+
+        // Will query all of the customer information, find if the brand is an apple device, will find the ids of the customers who own those decives, and will display each apple device that customer owns.
+        // Code generated by Copilot.
+
+        // var customerInfo = customers.Find(_ => true).ToList();
+        // var deviceInfo = devices.Find(b => b.Brand == "Apple").ToList();
+        // var appleOwnerIds = deviceInfo.Select(d => d.CustomerId).Distinct().ToList();
+        // var appleCustomers = customerInfo.Where(c => appleOwnerIds.Contains(c._id));
+
+        // Console.WriteLine("Customers who own Apple Devices:");
+        // foreach (var c in appleCustomers)
+        // {
+        //     var customerAppleDevices = deviceInfo.Where(d => d.CustomerId == c._id).ToList();
+
+        //     Console.WriteLine("---------------------------------------");
+        //     Console.WriteLine($"Name: {c.FirstName} {c.LastName}\n ID: {c._id}");
+        //     Console.WriteLine("Owned Apple Devices:");
+
+        //     foreach (var d in customerAppleDevices)
+        //     {
+        //         Console.WriteLine($"Device: {d.Brand} {d.Model}\n Under Warranty: {d.underWarranty}\n Device ID: {d._id}");
+        //     }  
+
+        //     Console.WriteLine("---------------------------------------"); 
+        // }
+
+        var expensiveTransactions = transactions.Find(_ => true).SortByDescending(t => t.Cost).Limit(10).ToList();
+        Console.WriteLine("Top ten most expensive transactions:");
+        foreach (var e in expensiveTransactions)
         {
-            Console.WriteLine($"\n Order ID: {transaction.OrderId}\n Cost: {transaction.Cost}\n Form Of Payment {transaction.PaymentMethod}\n Date Of Transaction: {transaction.Date}");
-        }
-        Console.WriteLine("\n-------------------------------------------");
+            Console.WriteLine("---------------------------------------");
+            Console.WriteLine($"Order ID: {e.OrderId}\n Cost: {e.Cost}\n Payment Method: {e.PaymentMethod}");
+        }   Console.WriteLine("---------------------------------------");
     } 
 }
