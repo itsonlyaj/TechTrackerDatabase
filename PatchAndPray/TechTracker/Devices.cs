@@ -10,5 +10,5 @@ public class Devices
     public string Brand { get; set; } = "";
     public string Model { get; set; } = "";
     public string SerialNumber { get; set; } = "";
-    public bool underWarranty { get; set; }
+    public bool UnderWarranty { get; set; }
 }

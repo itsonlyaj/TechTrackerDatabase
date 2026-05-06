@@ -4,18 +4,20 @@ using MongoDB.Bson.Serialization.Attributes;
 using DotNetEnv;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.VisualBasic;
+using System.Threading.Tasks;
+using MongoDB.Driver.Linq;
 
 namespace TechTracker;
 
 class Program
 {
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
         Env.Load();
 
         // MongoDB connection string with credentials   
              
-        const string connectionString = "Connection_String";
+        const string connectionString = "mongodb+srv://db_woodwarda1:AJWoods-AUG!2300@cluster.vkiam1i.mongodb.net/?appName=Cluster";
         var client = new MongoClient(connectionString);
 
         // Access the "TechTracker" database and its collections
@@ -1278,18 +1280,50 @@ class Program
 
         //     foreach (var d in customerAppleDevices)
         //     {
-        //         Console.WriteLine($"Device: {d.Brand} {d.Model}\n Under Warranty: {d.underWarranty}\n Device ID: {d._id}");
+        //         Console.WriteLine($"Device: {d.Brand} {d.Model}\n Under Warranty: {d.UnderWarranty}\n Device ID: {d._id}");
         //     }  
 
         //     Console.WriteLine("---------------------------------------"); 
         // }
 
-        var expensiveTransactions = transactions.Find(_ => true).SortByDescending(t => t.Cost).Limit(10).ToList();
-        Console.WriteLine("Top ten most expensive transactions:");
-        foreach (var e in expensiveTransactions)
+        // Sorting query that will display the ten most expensive transactions.
+
+        // var expensiveTransactions = transactions.Find(_ => true).SortByDescending(t => t.Cost).Limit(10).ToList();
+        // Console.WriteLine("Top ten most expensive transactions:");
+        // foreach (var e in expensiveTransactions)
+        // {
+        //     Console.WriteLine("---------------------------------------");
+        //     Console.WriteLine($"Order ID: {e.OrderId}\n Cost: {e.Cost}\n Payment Method: {e.PaymentMethod}");
+        // }   Console.WriteLine("---------------------------------------");
+
+        // Sample document to delete.
+
+        // var onlyOneTransacation = new Transactions
+        // {
+        //     OrderId = ObjectId.Parse("69ebe086f3d4f87213c7e773"),
+        //     Cost = 78.99,
+        //     PaymentMethod = "Cash",
+        //     Date = DateOnly.FromDateTime(new DateTime(2025, 7, 4)),
+        //     Completed = true
+        // };
+
+        // transactions.InsertOne(onlyOneTransacation);
+
+        // Will filter each transaction to find the matching OrderId in the transaction, once it's found, the sample document will be removed from the database.
+
+        // var deleteTranasaction = Builders<Transactions>.Filter.Eq(t => t.OrderId, ObjectId.Parse("69ebe086f3d4f87213c7e773"));
+        // transactions.DeleteOne(deleteTranasaction);
+        // Console.WriteLine("Transaction Deleted Succefully!");
+
+        // Look up query that will display all employees who live in the state of Tennessee.
+
+        var tnEmployess = employees.Find(t => t.address.State == "TN").ToList();
+        Console.WriteLine("All employees who live in Tennesee:");
+        foreach (var tn in tnEmployess)
         {
-            Console.WriteLine("---------------------------------------");
-            Console.WriteLine($"Order ID: {e.OrderId}\n Cost: {e.Cost}\n Payment Method: {e.PaymentMethod}");
-        }   Console.WriteLine("---------------------------------------");
-    } 
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine($"Name: {tn.FirstName} {tn.LastName}\n Email: {tn.Email}\n Phone Number: {tn.PhoneNumber}\n Street: {tn.address.Street}\n City: {tn.address.State}\n Zip Code: {tn.address.ZipCode}");
+            Console.WriteLine("----------------------------------------");
+        }
+    }   
 }
