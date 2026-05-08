@@ -17,7 +17,7 @@ class Program
 
         // MongoDB connection string with credentials   
              
-        const string connectionString = "mongodb+srv://db_woodwarda1:AJWoods-AUG!2300@cluster.vkiam1i.mongodb.net/?appName=Cluster";
+        const string connectionString = "Connection_String";
         var client = new MongoClient(connectionString);
 
         // Access the "TechTracker" database and its collections
@@ -39,7 +39,8 @@ class Program
 
         var db6 = client.GetDatabase("TechTracker");
         var transactions = db6.GetCollection<Transactions>("Transactions");
-    // Inserts a single customer into the Customers collection and prints the assigned ID.
+
+        // Inserts a single customer into the Customers collection and prints the assigned ID.
 
         // var oneCustomer = new Customer
         // {
@@ -47,1273 +48,1291 @@ class Program
         //     LastName = "Doe",
         //     Email = "tobias.doe@gmail.com",
         //     Phone = "213-442-3210",
-        //     CreationDate = DateOnly.FromDateTime(DateTime.Now)
+        //     CreationDate = DateTime.Now
         // };
 
         // customers.InsertOne(oneCustomer);
         // Console.WriteLine($"Customer {oneCustomer.FirstName} {oneCustomer.LastName} added with ID: {oneCustomer._id} \n");
 
-        // Inserts multiple customers into the Customers collection and prints their assigned IDs.
+        // // Inserts multiple customers into the Customers collection and prints their assigned IDs.
 
-        // var addManyCustomers = new List<Customer>
-        // {
-        //     new Customer
-        //     {
-        //         FirstName = "William",
-        //         LastName = "Afton",
-        //         Email = "william.afton@gmail.com",
-        //         Phone = "846-103-4935",
-        //         CreationDate = DateOnly.FromDateTime(DateTime.Now)
-        //     },
-        //     new Customer
-        //     {
-        //         FirstName = "Michael",
-        //         LastName = "Afton",
-        //         Email = "michael.afton@gmail.com",
-        //         Phone = "846-453-0945",
-        //         CreationDate = DateOnly.FromDateTime(new DateTime(2023, 5, 1))
-        //     },
-        //     new Customer
-        //     {
-        //         FirstName = "Richard",
-        //         LastName = "Anglon",
-        //         Email = "richie434092@outlook.com",
-        //         Phone = "900-103-4935",
-        //         CreationDate = DateOnly.FromDateTime(new DateTime(2024, 10, 10))
-        //     },
-        //     new Customer
-        //     {
-        //         FirstName = "Emily",
-        //         LastName = "Smith",
-        //         Email = "emilysmith2002@yahoo.com",
-        //         Phone = "278-103-3024",
-        //         CreationDate = DateOnly.FromDateTime(new DateTime(2026, 4, 20))
-        //     },
-        //     new Customer
-        //     {
-        //         FirstName = "David",
-        //         LastName = "Johnson",
-        //         Email = "davidjohn@outlook,com",
-        //         Phone = "490-204-1003",
-        //         CreationDate = DateOnly.FromDateTime(new DateTime(2025, 7, 15))
-        //     },
-        //     new Customer 
-        //     {
-        //         FirstName = "Sarah",
-        //         LastName = "Miller",
-        //         Email = "smiller@gmail.com",
-        //         Phone = "846-191-7342",
-        //         CreationDate = DateOnly.FromDateTime(DateTime.Now)
-        //     },
-        //     new Customer 
-        //     {
-        //         FirstName = "James",
-        //         LastName = "Wilson",
-        //         Email = "james.wilson@gmail.com",
-        //         Phone = "846-343-4904",
-        //         CreationDate = DateOnly.FromDateTime(new DateTime(2023, 2, 28))
-        //     },
-        //     new Customer 
-        //     {
-        //         FirstName = "Olivia",
-        //         LastName = "Davis",
-        //         Email = "OliviaLovesBTS@yahoo.com",
-        //         Phone = "590-205-2984",
-        //         CreationDate = DateOnly.FromDateTime(new DateTime(2024, 8, 5))
-        //     },
-        //     new Customer{
-        //         FirstName = "Daniel",
-        //         LastName = "Garcia",
-        //         Email = "garciadan@yahoo.com",
-        //         Phone = "864-783-2988",
-        //         CreationDate = DateOnly.FromDateTime(new DateTime(2025, 11, 30))
-        //     },
-        //     new Customer
-        //     {
-        //         FirstName = "Matthew",
-        //         LastName = "Carter",
-        //         Email = "ILoveMHA@gmail.com",
-        //         Phone = "999-444-4920",
-        //         CreationDate = DateOnly.FromDateTime(new DateTime(2026, 1, 10))
-        //     },
-        //     new Customer
-        //     {
-        //         FirstName = "Tanner",
-        //         LastName = "Davis",
-        //         Email = "PeaShooterFromPVZ@outlook.com",
-        //         Phone = "390-124-3904",
-        //         CreationDate = DateOnly.FromDateTime(new DateTime(2026, 3, 15))
-        //     },
-        //     new Customer
-        //     {
-        //         FirstName = "Sophia",
-        //         LastName = "Martinez",
-        //         Email = "sophiamartinez@gmail.com",
-        //         Phone = "555-123-4567",
-        //         CreationDate = DateOnly.FromDateTime(new DateTime(2025, 6, 20))
-        //     },
-        //     new Customer
-        //     {
-        //         FirstName = "Andrew",
-        //         LastName = "Anderson",
-        //         Email = "andrew.anderson@gmail.com",
-        //         Phone = "846-678-9012",
-        //         CreationDate = DateOnly.FromDateTime(new DateTime(2024, 9, 25))
-        //     },
-        //     new Customer
-        //     {
-        //         FirstName = "Isabella",
-        //         LastName = "Taylor",
-        //         Email = "isabellataylor676@outlook.com",
-        //         Phone = "534-232-4534",
-        //         CreationDate = DateOnly.FromDateTime(new DateTime(2025, 10, 15))
-        //     },
-        //     new Customer
-        //     {
-        //         FirstName = "Joseph",
-        //         LastName = "Thomas",
-        //         Email = "joesbarbaquefootmasage@gmail.com",
-        //         Phone = "893-156-1234",
-        //         CreationDate = DateOnly.FromDateTime(new DateTime(2025, 11, 20))
+        var addManyCustomers = new List<Customer>
+        {
+            new Customer
+            {
+                FirstName = "William",
+                LastName = "Afton",
+                Email = "william.afton@gmail.com",
+                Phone = "846-103-4935",
+                CreationDate = DateTime.Now
+            },
+            new Customer
+            {
+                FirstName = "Michael",
+                LastName = "Afton",
+                Email = "michael.afton@gmail.com",
+                Phone = "846-453-0945",
+                CreationDate =  new DateTime(2023-5-1)
+            },
+            new Customer
+            {
+                FirstName = "Richard",
+                LastName = "Anglon",
+                Email = "richie434092@outlook.com",
+                Phone = "900-103-4935",
+                CreationDate = new DateTime(2024-10-10)
+            },
+            new Customer
+            {
+                FirstName = "Emily",
+                LastName = "Smith",
+                Email = "emilysmith2002@yahoo.com",
+                Phone = "278-103-3024",
+                CreationDate = new DateTime(2026-4-20)
+            },
+            new Customer
+            {
+                FirstName = "David",
+                LastName = "Johnson",
+                Email = "davidjohn@outlook,com",
+                Phone = "490-204-1003",
+                CreationDate = new DateTime(2025-7-15)
+            },
+            new Customer 
+            {
+                FirstName = "Sarah",
+                LastName = "Miller",
+                Email = "smiller@gmail.com",
+                Phone = "846-191-7342",
+                CreationDate = DateTime.Now
+            },
+            new Customer 
+            {
+                FirstName = "James",
+                LastName = "Wilson",
+                Email = "james.wilson@gmail.com",
+                Phone = "846-343-4904",
+                CreationDate = new DateTime(2023-2-28)
+            },
+            new Customer 
+            {
+                FirstName = "Olivia",
+                LastName = "Davis",
+                Email = "OliviaLovesBTS@yahoo.com",
+                Phone = "590-205-2984",
+                CreationDate = new DateTime(2024-8-5)
+            },
+            new Customer{
+                FirstName = "Daniel",
+                LastName = "Garcia",
+                Email = "garciadan@yahoo.com",
+                Phone = "864-783-2988",
+                CreationDate = new DateTime(2025, 11, 30)
+            },
+            new Customer
+            {
+                FirstName = "Matthew",
+                LastName = "Carter",
+                Email = "ILoveMHA@gmail.com",
+                Phone = "999-444-4920",
+                CreationDate = new DateTime(2026, 1, 10)
+            },
+            new Customer
+            {
+                FirstName = "Tanner",
+                LastName = "Davis",
+                Email = "PeaShooterFromPVZ@outlook.com",
+                Phone = "390-124-3904",
+                CreationDate = new DateTime(2026, 3, 15)
+            },
+            new Customer
+            {
+                FirstName = "Sophia",
+                LastName = "Martinez",
+                Email = "sophiamartinez@gmail.com",
+                Phone = "555-123-4567",
+                CreationDate = new DateTime(2025, 6, 20)
+            },
+            new Customer
+            {
+                FirstName = "Andrew",
+                LastName = "Anderson",
+                Email = "andrew.anderson@gmail.com",
+                Phone = "846-678-9012",
+                CreationDate = new DateTime(2024, 9, 25)
+            },
+            new Customer
+            {
+                FirstName = "Isabella",
+                LastName = "Taylor",
+                Email = "isabellataylor676@outlook.com",
+                Phone = "534-232-4534",
+                CreationDate = new DateTime(2025, 10, 15)
+            },
+            new Customer
+            {
+                FirstName = "Joseph",
+                LastName = "Thomas",
+                Email = "joesbarbaquefootmasage@gmail.com",
+                Phone = "893-156-1234",
+                CreationDate = new DateTime(2025, 11, 20)
 
-        //     },
-        //     new Customer
-        //     {
-        //         FirstName = "Mia",
-        //         LastName = "Harris",
-        //         Email = "harrism1@etsu.edu",
-        //         Phone = "309-398-1045",
-        //         CreationDate = DateOnly.FromDateTime(DateTime.Now)
-        //     },
-        //     new Customer
-        //     {
-        //         FirstName = "Christopher",
-        //         LastName = "Clark",
-        //         Email = "clarkc73@etsu.edu",
-        //         Phone = "846-191-7342",
-        //         CreationDate = DateOnly.FromDateTime(DateTime.Now)
-        //     },
-        //     new Customer
-        //     {
-        //         FirstName = "Ava",
-        //         LastName = "Lewis",
-        //         Email = "lewisav5@etsu.edu",
-        //         Phone = "882-145-5982",
-        //         CreationDate = DateOnly.FromDateTime(DateTime.Now)
-        //     },
-        //     new Customer
-        //     {
-        //         FirstName = "Ethan",
-        //         LastName = "Winters",
-        //         Email = "winterset@gmail.com",
-        //         Phone = "290-783-4444",
-        //         CreationDate = DateOnly.FromDateTime(new DateTime(2024, 12, 5))
-        //     },
-        //     new Customer
-        //     {
-        //         FirstName = "Tony",
-        //         LastName = "Soprano",
-        //         Email = "gabagool@yahoo.com",
-        //         Phone = "946-678-9012",
-        //         CreationDate = DateOnly.FromDateTime(DateTime.Now)
-        //     },
-        //     new Customer
-        //     {
-        //         FirstName = "Christopher",
-        //         LastName = "Moltisanti",
-        //         Email = "moltisantic@yahoo.com",
-        //         Phone = "842-191-7935",
-        //         CreationDate = DateOnly.FromDateTime(new DateTime(2022, 4, 17))
-        //     },
-        //     new Customer
-        //     {
-        //         FirstName = "Paulie",
-        //         LastName = "Gualtieri",
-        //         Email = "WatchItChrissy@gmail.com",
-        //         Phone = "289-233-9801",
-        //         CreationDate = DateOnly.FromDateTime(new DateTime(2023, 8, 10))
-        //     },
-        //     new Customer
-        //     {
-        //         FirstName = "Silvio",
-        //         LastName = "Dante",
-        //         Email = "JustAsIThoughIWasOutTheyPullMeBackIn@yahoo.com",
-        //         Phone = "392-190-4920",
-        //         CreationDate = DateOnly.FromDateTime(new DateTime(2024, 10, 23))
-        //     },
-        //     new Customer
-        //     {
-        //         FirstName = "Carmela",
-        //         LastName = "Soprano",
-        //         Email = "IHateMyHusband333@yahoo.com",
-        //         Phone = "846-678-9012",
-        //         CreationDate = DateOnly.FromDateTime(new DateTime(2026, 4, 22))
-        //     }
-        // };
+            },
+            new Customer
+            {
+                FirstName = "Mia",
+                LastName = "Harris",
+                Email = "harrism1@etsu.edu",
+                Phone = "309-398-1045",
+                CreationDate = DateTime.Now
+            },
+            new Customer
+            {
+                FirstName = "Christopher",
+                LastName = "Clark",
+                Email = "clarkc73@etsu.edu",
+                Phone = "846-191-7342",
+                CreationDate = DateTime.Now
+            },
+            new Customer
+            {
+                FirstName = "Ava",
+                LastName = "Lewis",
+                Email = "lewisav5@etsu.edu",
+                Phone = "882-145-5982",
+                CreationDate = DateTime.Now
+            },
+            new Customer
+            {
+                FirstName = "Ethan",
+                LastName = "Winters",
+                Email = "winterset@gmail.com",
+                Phone = "290-783-4444",
+                CreationDate = new DateTime(2024, 12, 5)
+            },
+            new Customer
+            {
+                FirstName = "Tony",
+                LastName = "Soprano",
+                Email = "gabagool@yahoo.com",
+                Phone = "946-678-9012",
+                CreationDate = DateTime.Now
+            },
+            new Customer
+            {
+                FirstName = "Christopher",
+                LastName = "Moltisanti",
+                Email = "moltisantic@yahoo.com",
+                Phone = "842-191-7935",
+                CreationDate = new DateTime(2022, 4, 17)
+            },
+            new Customer
+            {
+                FirstName = "Paulie",
+                LastName = "Gualtieri",
+                Email = "WatchItChrissy@gmail.com",
+                Phone = "289-233-9801",
+                CreationDate = new DateTime(2023, 8, 10)
+            },
+            new Customer
+            {
+                FirstName = "Silvio",
+                LastName = "Dante",
+                Email = "JustAsIThoughIWasOutTheyPullMeBackIn@yahoo.com",
+                Phone = "392-190-4920",
+                CreationDate = new DateTime(2024, 10, 23)
+            },
+            new Customer
+            {
+                FirstName = "Carmela",
+                LastName = "Soprano",
+                Email = "IHateMyHusband333@yahoo.com",
+                Phone = "846-678-9012",
+                CreationDate = new DateTime(2026, 4, 22)
+            }
+        };
 
-        // customers.InsertMany(addManyCustomers);
-        // Console.WriteLine("Customers added: \n");
-        // foreach (var customer in addManyCustomers)
-        // {
-        //     Console.WriteLine($"{customer.FirstName} {customer.LastName} added with ID: {customer._id}");
-        // }
+        customers.InsertMany(addManyCustomers);
+        Console.WriteLine("Customers added: \n");
+        foreach (var customer in addManyCustomers)
+        {
+            Console.WriteLine($"{customer.FirstName} {customer.LastName} added with ID: {customer._id}");
+        }
 
         // Inserts a single device into the Devices collection and prints the assigned ID.
 
-        // var oneDevice = new Devices
-        // {
-        //     CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdbf"), // ID of an existing customer in the Customers collection
-        //     Brand = "Apple",
-        //     Model = "iPhone 13 Pro Max",
-        //     SerialNumber = "SN8948384893",
-        //     UnderWarranty = true
-        // };
+        var oneDevice = new Devices
+        {
+            CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdbf"), // ID of an existing customer in the Customers collection
+            Brand = "Apple",
+            Model = "iPhone 13 Pro Max",
+            SerialNumber = "SN8948384893",
+            UnderWarranty = true
+        };
 
-        // devices.InsertOne(oneDevice);
-        // Console.WriteLine($"Device {oneDevice.Brand} {oneDevice.Model} added with ID: {oneDevice._id} \n");
+        devices.InsertOne(oneDevice);
+        Console.WriteLine($"Device {oneDevice.Brand} {oneDevice.Model} added with ID: {oneDevice._id} \n");
 
-        // // Inserts multiple devices into the Devices collection and prints their assigned IDs.
+        // Inserts multiple devices into the Devices collection and prints their assigned IDs.
 
-        // var manyDevices = new List<Devices>
-        // {
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdbf"), 
-        //         Brand = "Samsung",
-        //         Model = "Galaxy S21 Ultra",
-        //         SerialNumber = "SN1234567890",
-        //         UnderWarranty = true
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdbf"),
-        //         Brand = "Google",
-        //         Model = "Pixel 6 Pro",
-        //         SerialNumber = "SN0987654321",
-        //         UnderWarranty = false
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdbf"), 
-        //         Brand = "OnePlus",
-        //         Model = "9 Pro",
-        //         SerialNumber = "SN5678901234",
-        //         UnderWarranty = true
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69e57924403a5b0cd088eb24"),
-        //         Brand = "Apple",
-        //         Model = "iPhone 14 Pro",
-        //         SerialNumber = "SN1000000001",
-        //         UnderWarranty = false
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69e57ae78d519142231a1320"),
-        //         Brand = "Samsung",
-        //         Model = "Galaxy Z Fold 4",
-        //         SerialNumber = "SN1000000002",
-        //         UnderWarranty = true
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69e57cfa0836e782c647abfb"),
-        //         Brand = "Google",
-        //         Model = "Pixel 7",
-        //         SerialNumber = "SN1000000003",
-        //         UnderWarranty = false
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69e57cfa0836e782c647abfc"),
-        //         Brand = "OnePlus",
-        //         Model = "11",
-        //         SerialNumber = "SN1000000004",
-        //         UnderWarranty = true
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69e57cfa0836e782c647abfd"),
-        //         Brand = "Motorola",
-        //         Model = "Edge+",
-        //         SerialNumber = "SN1000000005",
-        //         UnderWarranty = false
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69e57cfa0836e782c647abfa"),
-        //         Brand = "Sony",
-        //         Model = "Xperia 1 V",
-        //         SerialNumber = "SN1000000006",
-        //         UnderWarranty = true
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea4ba4ec4b8282cdaebd65"),
-        //         Brand = "Apple",
-        //         Model = "iPhone 13",
-        //         SerialNumber = "SN1000000007",
-        //         UnderWarranty = false
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc0db704947f852bdaf"),
-        //         Brand = "Samsung",
-        //         Model = "Galaxy S22",
-        //         SerialNumber = "SN1000000008",
-        //         UnderWarranty = true
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdb0"),
-        //         Brand = "Google",
-        //         Model = "Pixel 6a",
-        //         SerialNumber = "SN1000000009",
-        //         UnderWarranty = false
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdb1"),
-        //         Brand = "OnePlus",
-        //         Model = "Nord N20",
-        //         SerialNumber = "SN1000000010",
-        //         UnderWarranty = true
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdb2"),
-        //         Brand = "Apple",
-        //         Model = "iPhone SE (2022)",
-        //         SerialNumber = "SN1000000011",
-        //         UnderWarranty = false
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdb3"),
-        //         Brand = "Samsung",
-        //         Model = "Galaxy A53",
-        //         SerialNumber = "SN1000000012",
-        //         UnderWarranty = true
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdb4"),
-        //         Brand = "Google",
-        //         Model = "Pixel 5",
-        //         SerialNumber = "SN1000000013",
-        //         UnderWarranty = false
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdb5"),
-        //         Brand = "Sony",
-        //         Model = "Xperia 5 IV",
-        //         SerialNumber = "SN1000000014",
-        //         UnderWarranty = true
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdb6"),
-        //         Brand = "Motorola",
-        //         Model = "Moto G Power",
-        //         SerialNumber = "SN1000000015",
-        //         UnderWarranty = false
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdb7"),
-        //         Brand = "Apple",
-        //         Model = "iPhone 12 Pro Max",
-        //         SerialNumber = "SN1000000016",
-        //         UnderWarranty = true
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdb8"),
-        //         Brand = "Samsung",
-        //         Model = "Galaxy Note 20",
-        //         SerialNumber = "SN1000000017",
-        //         UnderWarranty = false
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdb9"),
-        //         Brand = "Google",
-        //         Model = "Pixel 4 XL",
-        //         SerialNumber = "SN1000000018",
-        //         UnderWarranty = true
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdba"),
-        //         Brand = "OnePlus",
-        //         Model = "8T",
-        //         SerialNumber = "SN1000000019",
-        //         UnderWarranty = false
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdbb"),
-        //         Brand = "Apple",
-        //         Model = "iPhone 11",
-        //         SerialNumber = "SN1000000020",
-        //         UnderWarranty = true
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdbc"),
-        //         Brand = "Samsung",
-        //         Model = "Galaxy S20 FE",
-        //         SerialNumber = "SN1000000021",
-        //         UnderWarranty = false
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdbd"),
-        //         Brand = "Google",
-        //         Model = "Pixel 3a",
-        //         SerialNumber = "SN1000000022",
-        //         UnderWarranty = true
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdbe"),
-        //         Brand = "Sony",
-        //         Model = "Xperia 10 III",
-        //         SerialNumber = "SN1000000023",
-        //         UnderWarranty = false
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdbf"),
-        //         Brand = "Apple",
-        //         Model = "iPhone 15",
-        //         SerialNumber = "SN1000000024",
-        //         UnderWarranty = true
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdc0"),
-        //         Brand = "Samsung",
-        //         Model = "Galaxy S23",
-        //         SerialNumber = "SN1000000025",
-        //         UnderWarranty = false
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdc1"),
-        //         Brand = "Google",
-        //         Model = "Pixel 8",
-        //         SerialNumber = "SN1000000026",
-        //         UnderWarranty = true
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdc2"),
-        //         Brand = "OnePlus",
-        //         Model = "12",
-        //         SerialNumber = "SN1000000027",
-        //         UnderWarranty = false
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdc3"),
-        //         Brand = "Apple",
-        //         Model = "iPhone XR",
-        //         SerialNumber = "SN1000000028",
-        //         UnderWarranty = true
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdc4"),
-        //         Brand = "Samsung",
-        //         Model = "Galaxy A14",
-        //         SerialNumber = "SN1000000029",
-        //         UnderWarranty = false
-        //     },
-        //     new Devices
-        //     {
-        //         CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdc5"),
-        //         Brand = "Google",
-        //         Model = "Pixel 2",
-        //         SerialNumber = "SN1000000030",
-        //         UnderWarranty = true
-        //     }
-        // };
+        var manyDevices = new List<Devices>
+        {
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdbf"), 
+                Brand = "Samsung",
+                Model = "Galaxy S21 Ultra",
+                SerialNumber = "SN1234567890",
+                UnderWarranty = true
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdbf"),
+                Brand = "Google",
+                Model = "Pixel 6 Pro",
+                SerialNumber = "SN0987654321",
+                UnderWarranty = false
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdbf"), 
+                Brand = "OnePlus",
+                Model = "9 Pro",
+                SerialNumber = "SN5678901234",
+                UnderWarranty = true
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69e57924403a5b0cd088eb24"),
+                Brand = "Apple",
+                Model = "iPhone 14 Pro",
+                SerialNumber = "SN1000000001",
+                UnderWarranty = false
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69e57ae78d519142231a1320"),
+                Brand = "Samsung",
+                Model = "Galaxy Z Fold 4",
+                SerialNumber = "SN1000000002",
+                UnderWarranty = true
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69e57cfa0836e782c647abfb"),
+                Brand = "Google",
+                Model = "Pixel 7",
+                SerialNumber = "SN1000000003",
+                UnderWarranty = false
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69e57cfa0836e782c647abfc"),
+                Brand = "OnePlus",
+                Model = "11",
+                SerialNumber = "SN1000000004",
+                UnderWarranty = true
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69e57cfa0836e782c647abfd"),
+                Brand = "Motorola",
+                Model = "Edge+",
+                SerialNumber = "SN1000000005",
+                UnderWarranty = false
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69e57cfa0836e782c647abfa"),
+                Brand = "Sony",
+                Model = "Xperia 1 V",
+                SerialNumber = "SN1000000006",
+                UnderWarranty = true
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea4ba4ec4b8282cdaebd65"),
+                Brand = "Apple",
+                Model = "iPhone 13",
+                SerialNumber = "SN1000000007",
+                UnderWarranty = false
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc0db704947f852bdaf"),
+                Brand = "Samsung",
+                Model = "Galaxy S22",
+                SerialNumber = "SN1000000008",
+                UnderWarranty = true
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdb0"),
+                Brand = "Google",
+                Model = "Pixel 6a",
+                SerialNumber = "SN1000000009",
+                UnderWarranty = false
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdb1"),
+                Brand = "OnePlus",
+                Model = "Nord N20",
+                SerialNumber = "SN1000000010",
+                UnderWarranty = true
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdb2"),
+                Brand = "Apple",
+                Model = "iPhone SE (2022)",
+                SerialNumber = "SN1000000011",
+                UnderWarranty = false
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdb3"),
+                Brand = "Samsung",
+                Model = "Galaxy A53",
+                SerialNumber = "SN1000000012",
+                UnderWarranty = true
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdb4"),
+                Brand = "Google",
+                Model = "Pixel 5",
+                SerialNumber = "SN1000000013",
+                UnderWarranty = false
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdb5"),
+                Brand = "Sony",
+                Model = "Xperia 5 IV",
+                SerialNumber = "SN1000000014",
+                UnderWarranty = true
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdb6"),
+                Brand = "Motorola",
+                Model = "Moto G Power",
+                SerialNumber = "SN1000000015",
+                UnderWarranty = false
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdb7"),
+                Brand = "Apple",
+                Model = "iPhone 12 Pro Max",
+                SerialNumber = "SN1000000016",
+                UnderWarranty = true
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdb8"),
+                Brand = "Samsung",
+                Model = "Galaxy Note 20",
+                SerialNumber = "SN1000000017",
+                UnderWarranty = false
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdb9"),
+                Brand = "Google",
+                Model = "Pixel 4 XL",
+                SerialNumber = "SN1000000018",
+                UnderWarranty = true
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdba"),
+                Brand = "OnePlus",
+                Model = "8T",
+                SerialNumber = "SN1000000019",
+                UnderWarranty = false
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdbb"),
+                Brand = "Apple",
+                Model = "iPhone 11",
+                SerialNumber = "SN1000000020",
+                UnderWarranty = true
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdbc"),
+                Brand = "Samsung",
+                Model = "Galaxy S20 FE",
+                SerialNumber = "SN1000000021",
+                UnderWarranty = false
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdbd"),
+                Brand = "Google",
+                Model = "Pixel 3a",
+                SerialNumber = "SN1000000022",
+                UnderWarranty = true
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdbe"),
+                Brand = "Sony",
+                Model = "Xperia 10 III",
+                SerialNumber = "SN1000000023",
+                UnderWarranty = false
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdbf"),
+                Brand = "Apple",
+                Model = "iPhone 15",
+                SerialNumber = "SN1000000024",
+                UnderWarranty = true
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdc0"),
+                Brand = "Samsung",
+                Model = "Galaxy S23",
+                SerialNumber = "SN1000000025",
+                UnderWarranty = false
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdc1"),
+                Brand = "Google",
+                Model = "Pixel 8",
+                SerialNumber = "SN1000000026",
+                UnderWarranty = true
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdc2"),
+                Brand = "OnePlus",
+                Model = "12",
+                SerialNumber = "SN1000000027",
+                UnderWarranty = false
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdc3"),
+                Brand = "Apple",
+                Model = "iPhone XR",
+                SerialNumber = "SN1000000028",
+                UnderWarranty = true
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdc4"),
+                Brand = "Samsung",
+                Model = "Galaxy A14",
+                SerialNumber = "SN1000000029",
+                UnderWarranty = false
+            },
+            new Devices
+            {
+                CustomerId = ObjectId.Parse("69ea6bc1db704947f852bdc5"),
+                Brand = "Google",
+                Model = "Pixel 2",
+                SerialNumber = "SN1000000030",
+                UnderWarranty = true
+            }
+        };
 
-        // devices.InsertMany(manyDevices);
-        // Console.WriteLine("Devices added: \n");
-        // foreach (var device in manyDevices)
-        // {
-        //     Console.WriteLine($"{device.Brand} {device.Model} added with ID: {device._id}");
-        // }
+        devices.InsertMany(manyDevices);
+        Console.WriteLine("Devices added: \n");
+        foreach (var device in manyDevices)
+        {
+            Console.WriteLine($"{device.Brand} {device.Model} added with ID: {device._id}");
+        }
 
         // Inserts a single employee into the Employees collection and prints the assigned ID.
 
-        // var addEmployee = new Employees
-        // {
-        //     FirstName = "AJ",
-        //     LastName = "Woodward",
-        //     Email = "ajwoodward@techtracker.com",
-        //     PhoneNumber = "846-191-7342",
-        //     address = new Address   // Nested address object with street, city, state, and zip code
-        //     {
-        //         Street = "199 Main St",
-        //         City = "Johnson City",
-        //         State = "TN",
-        //         ZipCode = "37601"
-        //     },
-        //     PasswordHash = "teST&878@373",
-        //     EmployeeRole = "Manager"
-        // };
+        var addEmployee = new Employees
+        {
+            FirstName = "AJ",
+            LastName = "Woodward",
+            Email = "ajwoodward@techtracker.com",
+            PhoneNumber = "846-191-7342",
+            address = new Address   // Nested address object with street, city, state, and zip code
+            {
+                Street = "199 Main St",
+                City = "Johnson City",
+                State = "TN",
+                ZipCode = "37601"
+            },
+            PasswordHash = "teST&878@373",
+            EmployeeRole = "Manager"
+        };
 
-        // employees.InsertOne(addEmployee);
-        // Console.WriteLine($"Employee {addEmployee.FirstName} {addEmployee.LastName} added with ID: {addEmployee._id} \n");
+        employees.InsertOne(addEmployee);
+        Console.WriteLine($"Employee {addEmployee.FirstName} {addEmployee.LastName} added with ID: {addEmployee._id} \n");
 
         // Adds the list of employees to the database.
 
-        // var collaboratorsPlusProfessor = new List<Employees>
-        // {
-        //     new Employees
-        //     {
-        //         FirstName = "Vanay",
-        //         LastName = "Rowell",
-        //         Email = "vanayrowell@techtracker.com",
-        //         PhoneNumber = "864-134-4472",
-        //         address = new Address
-        //         {
-        //             Street = "123 Elm St",
-        //             City = "Johnson City",
-        //             State = "TN",
-        //             ZipCode = "37601"
-        //         },
-        //         PasswordHash = "vANAY&878@373",
-        //         EmployeeRole = "Technician"
-        //     },
-        //     new Employees
-        //     {
-        //         FirstName = "Luke",
-        //         LastName = "Mason",
-        //         Email = "lukemason@techtracker.com",
-        //         PhoneNumber = "864-134-4473",
-        //         address = new Address
-        //         {
-        //             Street = "456 Oak Ave",
-        //             City = "Johnson City",
-        //             State = "TN",
-        //             ZipCode = "37601"
-        //         },
-        //         PasswordHash = "lUKE&878@373",
-        //         EmployeeRole = "Supervisor"
-        //     },
-        //     new Employees
-        //     {
-        //         FirstName = "Alex",
-        //         LastName = "Gillespie",
-        //         Email = "alexgillespie@techtracker.com",
-        //         PhoneNumber = "392-437-1083",
-        //         address = new Address
-        //         {
-        //             Street = "290 Park Way Dr",
-        //             City = "Kingsport",
-        //             State = "TN",
-        //             ZipCode = "37662"
-        //         },
-        //         PasswordHash = "AL3XG19^732",
-        //         EmployeeRole = "Technician"
-        //     },
-        //     new Employees
-        //     {
-        //         FirstName = "Matthew",
-        //         LastName = "Desjardins",
-        //         Email = "notmatthewdesjardins@techtracker.com",
-        //         PhoneNumber = "892-323-9032",
-        //         address = new Address
-        //         {
-        //             Street = "900 Forest Rd",
-        //             City = "Kingsport",
-        //             State = "TN",
-        //             ZipCode = "37660"
-        //         },
-        //         PasswordHash = "Yu)&536Y839$%@-(2^*&)",
-        //         EmployeeRole = "CEO"
-        //     }
-        // };
+        var collaboratorsPlusProfessor = new List<Employees>
+        {
+            new Employees
+            {
+                FirstName = "Vanay",
+                LastName = "Rowell",
+                Email = "vanayrowell@techtracker.com",
+                PhoneNumber = "864-134-4472",
+                address = new Address
+                {
+                    Street = "123 Elm St",
+                    City = "Johnson City",
+                    State = "TN",
+                    ZipCode = "37601"
+                },
+                PasswordHash = "vANAY&878@373",
+                EmployeeRole = "Technician"
+            },
+            new Employees
+            {
+                FirstName = "Luke",
+                LastName = "Mason",
+                Email = "lukemason@techtracker.com",
+                PhoneNumber = "864-134-4473",
+                address = new Address
+                {
+                    Street = "456 Oak Ave",
+                    City = "Johnson City",
+                    State = "TN",
+                    ZipCode = "37601"
+                },
+                PasswordHash = "lUKE&878@373",
+                EmployeeRole = "Supervisor"
+            },
+            new Employees
+            {
+                FirstName = "Alex",
+                LastName = "Gillespie",
+                Email = "alexgillespie@techtracker.com",
+                PhoneNumber = "392-437-1083",
+                address = new Address
+                {
+                    Street = "290 Park Way Dr",
+                    City = "Kingsport",
+                    State = "TN",
+                    ZipCode = "37662"
+                },
+                PasswordHash = "AL3XG19^732",
+                EmployeeRole = "Technician"
+            },
+            new Employees
+            {
+                FirstName = "Matthew",
+                LastName = "Desjardins",
+                Email = "notmatthewdesjardins@techtracker.com",
+                PhoneNumber = "892-323-9032",
+                address = new Address
+                {
+                    Street = "900 Forest Rd",
+                    City = "Kingsport",
+                    State = "TN",
+                    ZipCode = "37660"
+                },
+                PasswordHash = "Yu)&536Y839$%@-(2^*&)",
+                EmployeeRole = "CEO"
+            }
+        };
 
         // Prints out employees names, IDs, emails, and roles.
 
-        // employees.InsertMany(collaboratorsPlusProfessor);
-        // Console.WriteLine("Employees Inserted: \n");
-        // foreach (var employee in collaboratorsPlusProfessor)
-        // {
-        //     Console.WriteLine($"Name: {employee.FirstName} {employee.LastName}, ID: {employee._id}, Email: {employee.Email}, Role: {employee.EmployeeRole}");
-        // }
+        employees.InsertMany(collaboratorsPlusProfessor);
+        Console.WriteLine("Employees Inserted: \n");
+        foreach (var employee in collaboratorsPlusProfessor)
+        {
+            Console.WriteLine($"Name: {employee.FirstName} {employee.LastName}, ID: {employee._id}, Email: {employee.Email}, Role: {employee.EmployeeRole}");
+        }
 
-        // var randomEmployees = new List<Employees>
-        // {
-        //     new Employees
-        //     {
-        //         FirstName = "Harold",
-        //         LastName = "Douglas",
-        //         Email = "harold343@techtracker.com",
-        //         PhoneNumber = "483-111-2003",
-        //         address = new Address
-        //         {
-        //             Street = "934 Pine Dr",
-        //             City = "Bristol",
-        //             State = "TN",
-        //             ZipCode = "24201"
-        //         },
-        //         PasswordHash = "H783*#6Hg&2",
-        //         EmployeeRole = "Technician"
-        //     },
-        //     new Employees
-        //     {
-        //         FirstName = "Landon",
-        //         LastName = "Reeves",
-        //         Email = "lreeves@techtracker.com",
-        //         PhoneNumber = "423-555-1011",
-        //         address = new Address
-        //         {
-        //             Street = "120 Maple Ridge Rd",
-        //             City = "Johnson City",
-        //             State = "TN",
-        //             ZipCode = "37601"
-        //         },
-        //         PasswordHash = "P@ss92!LmA",
-        //         EmployeeRole = "Marketing"
-        //     },
-        //     new Employees
-        //     {
-        //         FirstName = "Samantha",
-        //         LastName = "Cole",
-        //         Email = "scole@techtracker.com",
-        //         PhoneNumber = "423-555-1012",
-        //         address = new Address
-        //         {
-        //         Street = "88 Willow Bend Ln",
-        //         City = "Kingsport",
-        //         State = "TN",
-        //         ZipCode = "37660"
-        //     },
-        //     PasswordHash = "Tg#44Lp9$Q",
-        //     EmployeeRole = "Sales Associate"
-        //     },
-        //     new Employees
-        //     {
-        //         FirstName = "Marcus",
-        //         LastName = "Hendrix",
-        //         Email = "mhendrix@techtracker.com",
-        //         PhoneNumber = "423-555-1013",
-        //         address = new Address
-        //         {
-        //             Street = "402 Cedar Hill Dr",
-        //             City = "Bristol",
-        //             State = "TN",
-        //             ZipCode = "24201"
-        //         },
-        //         PasswordHash = "Zp!82@Qw7H",
-        //         EmployeeRole = "Customer Support"
-        //     },
-        //     new Employees
-        //     {
-        //         FirstName = "Alyssa",
-        //         LastName = "Turner",
-        //         Email = "aturner@techtracker.com",
-        //         PhoneNumber = "423-555-1014",
-        //         address = new Address
-        //         {
-        //             Street = "19 Oak Crest Ct",
-        //             City = "Johnson City",
-        //             State = "TN",
-        //             ZipCode = "37604"
-        //         },
-        //         PasswordHash = "R#9fT2!Lm8",
-        //         EmployeeRole = "Supervisor"
-        //     },
-        //     new Employees
-        //     {
-        //         FirstName = "Evan",
-        //         LastName = "Mitchell",
-        //         Email = "emitchell@techtracker.com",
-        //         PhoneNumber = "423-555-1015",
-        //         address = new Address
-        //         {
-        //             Street = "501 Ridgeview Dr",
-        //             City = "Elizabethton",
-        //             State = "TN",
-        //             ZipCode = "37643"
-        //         },
-        //         PasswordHash = "Kp$33!Ht7B",
-        //         EmployeeRole = "Technician"
-        //     },
-        //     new Employees
-        //     {
-        //         FirstName = "Jenna",
-        //         LastName = "Fowler",
-        //         Email = "jfowler@techtracker.com",
-        //         PhoneNumber = "423-555-1016",
-        //         address = new Address
-        //         {
-        //             Street = "77 Birchwood Ln",
-        //             City = "Jonesborough",
-        //             State = "TN",
-        //             ZipCode = "37659"
-        //         },
-        //         PasswordHash = "M!8tQ#2LpX",
-        //         EmployeeRole = "Marketing"
-        //     },
-        //     new Employees
-        //     {
-        //         FirstName = "Caleb",
-        //         LastName = "Owens",
-        //         Email = "cowens@techtracker.com",
-        //         PhoneNumber = "423-555-1017",
-        //         address = new Address
-        //         {
-        //             Street = "310 Meadowbrook Dr",
-        //             City = "Kingsport",
-        //             State = "TN",
-        //             ZipCode = "37663"
-        //         },
-        //         PasswordHash = "S@7pL!9QwF",
-        //         EmployeeRole = "Sales Associate"
-        //     },
-        //     new Employees
-        //     {
-        //         FirstName = "Rachel",
-        //         LastName = "Benson",
-        //         Email = "rbenson@techtracker.com",
-        //         PhoneNumber = "423-555-1018",
-        //         address = new Address
-        //         {
-        //             Street = "14 Sycamore St",
-        //             City = "Johnson City",
-        //             State = "TN",
-        //             ZipCode = "37615"
-        //         },
-        //         PasswordHash = "H#4tP!8LmC",
-        //         EmployeeRole = "Customer Support"
-        //     },
-        //     new Employees
-        //     {
-        //         FirstName = "Derrick",
-        //         LastName = "Shaw",
-        //         Email = "dshaw@techtracker.com",
-        //         PhoneNumber = "423-555-1019",
-        //         address = new Address
-        //         {
-        //             Street = "221 Highland Ridge Rd",
-        //             City = "Bristol",
-        //             State = "TN",
-        //             ZipCode = "24202"
-        //         },
-        //         PasswordHash = "Qp!6T#9LmV",
-        //         EmployeeRole = "Supervisor"
-        //     },
-        //     new Employees
-        //     {
-        //         FirstName = "Megan",
-        //         LastName = "Harris",
-        //         Email = "mharris@techtracker.com",
-        //         PhoneNumber = "423-555-1020",
-        //         address = new Address
-        //         {
-        //             Street = "900 Forest View Dr",
-        //             City = "Elizabethton",
-        //             State = "TN",
-        //             ZipCode = "37643"
-        //         },
-        //         PasswordHash = "Lp#3Q!7HtB",
-        //         EmployeeRole = "Technician"
-        //     },
-        //     new Employees
-        //     {
-        //         FirstName = "Tyler",
-        //         LastName = "Grant",
-        //         Email = "tgrant@techtracker.com",
-        //         PhoneNumber = "423-555-1021",
-        //         address = new Address
-        //         {
-        //             Street = "65 Riverbend Way",
-        //             City = "Jonesborough",
-        //             State = "TN",
-        //             ZipCode = "37659"
-        //         },
-        //         PasswordHash = "W!9tP#4LmS",
-        //         EmployeeRole = "Marketing"
-        //     },
-        //     new Employees
-        //     {
-        //         FirstName = "Hailey",
-        //         LastName = "Stevens",
-        //         Email = "hstevens@techtracker.com",
-        //         PhoneNumber = "423-555-1022",
-        //         address = new Address
-        //         {
-        //             Street = "300 Brookside Dr",
-        //             City = "Kingsport",
-        //             State = "TN",
-        //             ZipCode = "37664"
-        //         },
-        //         PasswordHash = "B#2tQ!8LpM",
-        //         EmployeeRole = "Sales Associate"
-        //     },
-        //     new Employees
-        //     {
-        //         FirstName = "Jordan",
-        //         LastName = "Parker",
-        //         Email = "jparker@techtracker.com",
-        //         PhoneNumber = "423-555-1023",
-        //         address = new Address
-        //         {
-        //             Street = "48 Chestnut Hill Rd",
-        //             City = "Johnson City",
-        //             State = "TN",
-        //             ZipCode = "37601"
-        //         },
-        //         PasswordHash = "T!7pL#3QwH",
-        //         EmployeeRole = "Customer Support"
-        //     },
-        //     new Employees
-        //     {
-        //         FirstName = "Brianna",
-        //         LastName = "Knight",
-        //         Email = "bknight@techtracker.com",
-        //         PhoneNumber = "423-555-1024",
-        //         address = new Address
-        //         {
-        //             Street = "12 Meadow Lane",
-        //             City = "Bristol",
-        //             State = "TN",
-        //             ZipCode = "24201"
-        //         },
-        //         PasswordHash = "N#5tQ!9LpA",
-        //         EmployeeRole = "Supervisor"
-        //     }
-        // };
+        var randomEmployees = new List<Employees>
+        {
+            new Employees
+            {
+                FirstName = "Harold",
+                LastName = "Douglas",
+                Email = "harold343@techtracker.com",
+                PhoneNumber = "483-111-2003",
+                address = new Address
+                {
+                    Street = "934 Pine Dr",
+                    City = "Bristol",
+                    State = "TN",
+                    ZipCode = "24201"
+                },
+                PasswordHash = "H783*#6Hg&2",
+                EmployeeRole = "Technician"
+            },
+            new Employees
+            {
+                FirstName = "Landon",
+                LastName = "Reeves",
+                Email = "lreeves@techtracker.com",
+                PhoneNumber = "423-555-1011",
+                address = new Address
+                {
+                    Street = "120 Maple Ridge Rd",
+                    City = "Johnson City",
+                    State = "TN",
+                    ZipCode = "37601"
+                },
+                PasswordHash = "P@ss92!LmA",
+                EmployeeRole = "Marketing"
+            },
+            new Employees
+            {
+                FirstName = "Samantha",
+                LastName = "Cole",
+                Email = "scole@techtracker.com",
+                PhoneNumber = "423-555-1012",
+                address = new Address
+                {
+                Street = "88 Willow Bend Ln",
+                City = "Kingsport",
+                State = "TN",
+                ZipCode = "37660"
+            },
+            PasswordHash = "Tg#44Lp9$Q",
+            EmployeeRole = "Sales Associate"
+            },
+            new Employees
+            {
+                FirstName = "Marcus",
+                LastName = "Hendrix",
+                Email = "mhendrix@techtracker.com",
+                PhoneNumber = "423-555-1013",
+                address = new Address
+                {
+                    Street = "402 Cedar Hill Dr",
+                    City = "Bristol",
+                    State = "TN",
+                    ZipCode = "24201"
+                },
+                PasswordHash = "Zp!82@Qw7H",
+                EmployeeRole = "Customer Support"
+            },
+            new Employees
+            {
+                FirstName = "Alyssa",
+                LastName = "Turner",
+                Email = "aturner@techtracker.com",
+                PhoneNumber = "423-555-1014",
+                address = new Address
+                {
+                    Street = "19 Oak Crest Ct",
+                    City = "Johnson City",
+                    State = "TN",
+                    ZipCode = "37604"
+                },
+                PasswordHash = "R#9fT2!Lm8",
+                EmployeeRole = "Supervisor"
+            },
+            new Employees
+            {
+                FirstName = "Evan",
+                LastName = "Mitchell",
+                Email = "emitchell@techtracker.com",
+                PhoneNumber = "423-555-1015",
+                address = new Address
+                {
+                    Street = "501 Ridgeview Dr",
+                    City = "Elizabethton",
+                    State = "TN",
+                    ZipCode = "37643"
+                },
+                PasswordHash = "Kp$33!Ht7B",
+                EmployeeRole = "Technician"
+            },
+            new Employees
+            {
+                FirstName = "Jenna",
+                LastName = "Fowler",
+                Email = "jfowler@techtracker.com",
+                PhoneNumber = "423-555-1016",
+                address = new Address
+                {
+                    Street = "77 Birchwood Ln",
+                    City = "Jonesborough",
+                    State = "TN",
+                    ZipCode = "37659"
+                },
+                PasswordHash = "M!8tQ#2LpX",
+                EmployeeRole = "Marketing"
+            },
+            new Employees
+            {
+                FirstName = "Caleb",
+                LastName = "Owens",
+                Email = "cowens@techtracker.com",
+                PhoneNumber = "423-555-1017",
+                address = new Address
+                {
+                    Street = "310 Meadowbrook Dr",
+                    City = "Kingsport",
+                    State = "TN",
+                    ZipCode = "37663"
+                },
+                PasswordHash = "S@7pL!9QwF",
+                EmployeeRole = "Sales Associate"
+            },
+            new Employees
+            {
+                FirstName = "Rachel",
+                LastName = "Benson",
+                Email = "rbenson@techtracker.com",
+                PhoneNumber = "423-555-1018",
+                address = new Address
+                {
+                    Street = "14 Sycamore St",
+                    City = "Johnson City",
+                    State = "TN",
+                    ZipCode = "37615"
+                },
+                PasswordHash = "H#4tP!8LmC",
+                EmployeeRole = "Customer Support"
+            },
+            new Employees
+            {
+                FirstName = "Derrick",
+                LastName = "Shaw",
+                Email = "dshaw@techtracker.com",
+                PhoneNumber = "423-555-1019",
+                address = new Address
+                {
+                    Street = "221 Highland Ridge Rd",
+                    City = "Bristol",
+                    State = "TN",
+                    ZipCode = "24202"
+                },
+                PasswordHash = "Qp!6T#9LmV",
+                EmployeeRole = "Supervisor"
+            },
+            new Employees
+            {
+                FirstName = "Megan",
+                LastName = "Harris",
+                Email = "mharris@techtracker.com",
+                PhoneNumber = "423-555-1020",
+                address = new Address
+                {
+                    Street = "900 Forest View Dr",
+                    City = "Elizabethton",
+                    State = "TN",
+                    ZipCode = "37643"
+                },
+                PasswordHash = "Lp#3Q!7HtB",
+                EmployeeRole = "Technician"
+            },
+            new Employees
+            {
+                FirstName = "Tyler",
+                LastName = "Grant",
+                Email = "tgrant@techtracker.com",
+                PhoneNumber = "423-555-1021",
+                address = new Address
+                {
+                    Street = "65 Riverbend Way",
+                    City = "Jonesborough",
+                    State = "TN",
+                    ZipCode = "37659"
+                },
+                PasswordHash = "W!9tP#4LmS",
+                EmployeeRole = "Marketing"
+            },
+            new Employees
+            {
+                FirstName = "Hailey",
+                LastName = "Stevens",
+                Email = "hstevens@techtracker.com",
+                PhoneNumber = "423-555-1022",
+                address = new Address
+                {
+                    Street = "300 Brookside Dr",
+                    City = "Kingsport",
+                    State = "TN",
+                    ZipCode = "37664"
+                },
+                PasswordHash = "B#2tQ!8LpM",
+                EmployeeRole = "Sales Associate"
+            },
+            new Employees
+            {
+                FirstName = "Jordan",
+                LastName = "Parker",
+                Email = "jparker@techtracker.com",
+                PhoneNumber = "423-555-1023",
+                address = new Address
+                {
+                    Street = "48 Chestnut Hill Rd",
+                    City = "Johnson City",
+                    State = "TN",
+                    ZipCode = "37601"
+                },
+                PasswordHash = "T!7pL#3QwH",
+                EmployeeRole = "Customer Support"
+            },
+            new Employees
+            {
+                FirstName = "Brianna",
+                LastName = "Knight",
+                Email = "bknight@techtracker.com",
+                PhoneNumber = "423-555-1024",
+                address = new Address
+                {
+                    Street = "12 Meadow Lane",
+                    City = "Bristol",
+                    State = "TN",
+                    ZipCode = "24201"
+                },
+                PasswordHash = "N#5tQ!9LpA",
+                EmployeeRole = "Supervisor"
+            }
+        };
 
-        // employees.InsertMany(randomEmployees);
-        // Console.WriteLine("Employees Inserted: \n");
-        // foreach (var employee in randomEmployees)
-        // {
-        //     Console.WriteLine($"Name: {employee.FirstName} {employee.LastName}, ID: {employee._id}, Email: {employee.Email}, Role: {employee.EmployeeRole}");
-        // }
+        employees.InsertMany(randomEmployees);
+        Console.WriteLine("Employees Inserted: \n");
+        foreach (var employee in randomEmployees)
+        {
+            Console.WriteLine($"Name: {employee.FirstName} {employee.LastName}, ID: {employee._id}, Email: {employee.Email}, Role: {employee.EmployeeRole}");
+        }
 
-        // var oneInvetoryItem = new Inventory
-        // {
-        //     PartName = "IPhone 12 Pro Max Screen",
-        //     PartLocation = "Asile 1, Shelf C",
-        //     Stock = 20,
-        //     LowStockThreshold = 3,
-        //     Cost = 59.99,
-        //     CompatabilityTag = "IPhone 12 Pro Max",
-        //     supplier = "IFixit"
-        // };
+        // Insert statement that will insert one item to the inventory collection.
 
-        // inventory.InsertOne(oneInvetoryItem);
+        var oneInvetoryItem = new Inventory
+        {
+            PartName = "IPhone 12 Pro Max Screen",
+            PartLocation = "Asile 1, Shelf C",
+            Stock = 20,
+            LowStockThreshold = 3,
+            Cost = 59.99,
+            CompatabilityTag = "IPhone 12 Pro Max",
+            supplier = "IFixit"
+        };
 
-        // var manyInvetoryItems = new List<Inventory>
-        // {
-        //     new Inventory
-        //     {
-        //         PartName = "iPhone SE (2022) Rear Camera",
-        //         PartLocation = "Asile 4, Shelf D",
-        //         Stock = 6,
-        //         LowStockThreshold = 3,
-        //         Cost = 12.99,
-        //         CompatabilityTag = "iPhone SE (2022)",
-        //         supplier = "eBay"    
-        //     },
-        //     new Inventory
-        //     {
-        //         PartName = "Apple iPhone 15 Rear Camera",
-        //         PartLocation = "Asile 5, Shelf A",
-        //         Stock = 2,
-        //         LowStockThreshold = 5,
-        //         CompatabilityTag = "Apple iPhone 15",
-        //         supplier = "Amazon"
-        //     },
-        //     new Inventory
-        //     {
-        //         PartName = "Google Pixel 2 Screen",
-        //         PartLocation = "Asile 2, Shelf A",
-        //         Stock = 12,
-        //         LowStockThreshold = 4,
-        //         CompatabilityTag = "Google Pixel 2",
-        //         supplier = "Amazon"
-        //     },
-        //     new Inventory
-        //     {
-        //         PartName = "Samsung Galaxy S21 Ultra Screen",
-        //         PartLocation = "Asile 1, Shelf B",
-        //         Stock = 5,
-        //         LowStockThreshold = 2,
-        //         Cost = 89.99,
-        //         CompatabilityTag = "Galaxy S21 Ultra",
-        //         supplier = "MobilePartsCo"
-        //     },
-        //     new Inventory
-        //     {
-        //         PartName = "Google Pixel 6 Pro Battery",
-        //         PartLocation = "Asile 3, Shelf C",
-        //         Stock = 8,
-        //         LowStockThreshold = 3,
-        //         Cost = 24.50,
-        //         CompatabilityTag = "Pixel 6 Pro",
-        //         supplier = "Amazon"
-        //     },
-        //     new Inventory
-        //     {
-        //         PartName = "OnePlus 9 Pro Charging Port",
-        //         PartLocation = "Asile 2, Shelf D",
-        //         Stock = 10,
-        //         LowStockThreshold = 4,
-        //         Cost = 9.99,
-        //         CompatabilityTag = "OnePlus 9 Pro",
-        //         supplier = "eBay"
-        //     },
-        //     new Inventory
-        //     {
-        //         PartName = "Apple iPhone 14 Pro OLED Screen",
-        //         PartLocation = "Asile 5, Shelf C",
-        //         Stock = 3,
-        //         LowStockThreshold = 2,
-        //         Cost = 189.99,
-        //         CompatabilityTag = "iPhone 14 Pro",
-        //         supplier = "MobilePartsCo"
-        //     },
-        //     new Inventory
-        //     {
-        //         PartName = "Samsung Galaxy Z Fold 4 Inner Screen",
-        //         PartLocation = "Asile 7, Shelf A",
-        //         Stock = 1,
-        //         LowStockThreshold = 2,
-        //         Cost = 349.99,
-        //         CompatabilityTag = "Galaxy Z Fold 4",
-        //         supplier = "Samsung Direct"
-        //     },
-        //     new Inventory
-        //     {
-        //         PartName = "Google Pixel 7 Rear Camera",
-        //         PartLocation = "Asile 3, Shelf A",
-        //         Stock = 7,
-        //         LowStockThreshold = 3,
-        //         Cost = 39.99,
-        //         CompatabilityTag = "Pixel 7",
-        //         supplier = "Amazon"
-        //     },
-        //     new Inventory
-        //     {
-        //         PartName = "OnePlus 11 Battery",
-        //         PartLocation = "Asile 2, Shelf B",
-        //         Stock = 9,
-        //         LowStockThreshold = 4,
-        //         Cost = 18.99,
-        //         CompatabilityTag = "OnePlus 11",
-        //         supplier = "eBay"
-        //     },
-        //     new Inventory
-        //     {
-        //         PartName = "Motorola Edge+ Screen",
-        //         PartLocation = "Asile 6, Shelf C",
-        //         Stock = 4,
-        //         LowStockThreshold = 2,
-        //         Cost = 129.99,
-        //         CompatabilityTag = "Motorola Edge+",
-        //         supplier = "MobilePartsCo"
-        //     },
-        //     new Inventory
-        //     {
-        //         PartName = "Sony Xperia 1 V Battery",
-        //         PartLocation = "Asile 4, Shelf A",
-        //         Stock = 6,
-        //         LowStockThreshold = 3,
-        //         Cost = 22.99,
-        //         CompatabilityTag = "Xperia 1 V",
-        //         supplier = "Sony Parts"
-        //     },
-        //     new Inventory
-        //     {
-        //         PartName = "Apple iPhone 13 Charging Port",
-        //         PartLocation = "Asile 5, Shelf D",
-        //         Stock = 11,
-        //         LowStockThreshold = 4,
-        //         Cost = 14.99,
-        //         CompatabilityTag = "iPhone 13",
-        //         supplier = "Amazon"
-        //     },
-        //     new Inventory
-        //     {
-        //         PartName = "Samsung Galaxy S22 Rear Camera",
-        //         PartLocation = "Asile 1, Shelf C",
-        //         Stock = 5,
-        //         LowStockThreshold = 2,
-        //         Cost = 49.99,
-        //         CompatabilityTag = "Galaxy S22",
-        //         supplier = "Samsung Direct"
-        //     },
-        //     new Inventory
-        //     {
-        //         PartName = "Google Pixel 6a Screen",
-        //         PartLocation = "Asile 3, Shelf B",
-        //         Stock = 8,
-        //         LowStockThreshold = 3,
-        //         Cost = 79.99,
-        //         CompatabilityTag = "Pixel 6a",
-        //         supplier = "Amazon"
-        //     },
-        //     new Inventory
-        //     {
-        //         PartName = "OnePlus Nord N20 Battery",
-        //         PartLocation = "Asile 2, Shelf C",
-        //         Stock = 10,
-        //         LowStockThreshold = 4,
-        //         Cost = 16.99,
-        //         CompatabilityTag = "Nord N20",
-        //         supplier = "eBay"
-        //     },
-        //     new Inventory
-        //     {
-        //         PartName = "Apple iPhone SE (2022) Screen",
-        //         PartLocation = "Asile 4, Shelf B",
-        //         Stock = 7,
-        //         LowStockThreshold = 3,
-        //         Cost = 49.99,
-        //         CompatabilityTag = "iPhone SE (2022)",
-        //         supplier = "Amazon"
-        //     },
-        //     new Inventory
-        //     {
-        //         PartName = "Samsung Galaxy A53 Battery",
-        //         PartLocation = "Asile 1, Shelf D",
-        //         Stock = 12,
-        //         LowStockThreshold = 5,
-        //         Cost = 19.99,
-        //         CompatabilityTag = "Galaxy A53",
-        //         supplier = "MobilePartsCo"
-        //     },
-        //     new Inventory
-        //     {
-        //         PartName = "Google Pixel 5 Rear Camera",
-        //         PartLocation = "Asile 3, Shelf D",
-        //         Stock = 6,
-        //         LowStockThreshold = 3,
-        //         Cost = 29.99,
-        //         CompatabilityTag = "Pixel 5",
-        //         supplier = "Amazon"
-        //     },
-        //     new Inventory
-        //     {
-        //         PartName = "Sony Xperia 5 IV Screen",
-        //         PartLocation = "Asile 4, Shelf C",
-        //         Stock = 3,
-        //         LowStockThreshold = 2,
-        //         Cost = 139.99,
-        //         CompatabilityTag = "Xperia 5 IV",
-        //         supplier = "Sony Parts"
-        //     },
-        //     new Inventory
-        //     {
-        //         PartName = "Motorola Moto G Power Charging Port",
-        //         PartLocation = "Asile 6, Shelf A",
-        //         Stock = 14,
-        //         LowStockThreshold = 5,
-        //         Cost = 8.99,
-        //         CompatabilityTag = "Moto G Power",
-        //         supplier = "eBay"
-        //     },
-        //     new Inventory
-        //     {
-        //         PartName = "Apple iPhone 12 Pro Max Battery",
-        //         PartLocation = "Asile 5, Shelf B",
-        //         Stock = 5,
-        //         LowStockThreshold = 2,
-        //         Cost = 29.99,
-        //         CompatabilityTag = "iPhone 12 Pro Max",
-        //         supplier = "Amazon"
-        //     }
-        // };
+        inventory.InsertOne(oneInvetoryItem);
+        Console.WriteLine("One item added to inventory!");
 
-        // var oneTransaction = new Transactions
-        // {
-        //     OrderId = ObjectId.Parse("69e81949a408d5b688112f33"),
-        //     Cost = 76.99,
-        //     PaymentMethod = "Cash",
-        //     Date = DateOnly.FromDateTime(new DateTime(2025, 4, 12)),
-        //     Completed = true
-        // };
+        //Insert statement that will insert more than one items in the collection.
 
-        // transactions.InsertOne(oneTransaction);
-        // Console.WriteLine("Transaction Inserted: \n");
-        // Console.WriteLine($" Order ID: {oneTransaction._id}, Cost: {oneTransaction.Cost}, Form Of Payment: {oneTransaction.PaymentMethod}, Date Of Transaction: {oneTransaction.Date}");
+        var manyInvetoryItems = new List<Inventory>
+        {
+            new Inventory
+            {
+                PartName = "iPhone SE (2022) Rear Camera",
+                PartLocation = "Asile 4, Shelf D",
+                Stock = 6,
+                LowStockThreshold = 3,
+                Cost = 12.99,
+                CompatabilityTag = "iPhone SE (2022)",
+                supplier = "eBay"    
+            },
+            new Inventory
+            {
+                PartName = "Apple iPhone 15 Rear Camera",
+                PartLocation = "Asile 5, Shelf A",
+                Stock = 2,
+                LowStockThreshold = 5,
+                CompatabilityTag = "Apple iPhone 15",
+                supplier = "Amazon"
+            },
+            new Inventory
+            {
+                PartName = "Google Pixel 2 Screen",
+                PartLocation = "Asile 2, Shelf A",
+                Stock = 12,
+                LowStockThreshold = 4,
+                CompatabilityTag = "Google Pixel 2",
+                supplier = "Amazon"
+            },
+            new Inventory
+            {
+                PartName = "Samsung Galaxy S21 Ultra Screen",
+                PartLocation = "Asile 1, Shelf B",
+                Stock = 5,
+                LowStockThreshold = 2,
+                Cost = 89.99,
+                CompatabilityTag = "Galaxy S21 Ultra",
+                supplier = "MobilePartsCo"
+            },
+            new Inventory
+            {
+                PartName = "Google Pixel 6 Pro Battery",
+                PartLocation = "Asile 3, Shelf C",
+                Stock = 8,
+                LowStockThreshold = 3,
+                Cost = 24.50,
+                CompatabilityTag = "Pixel 6 Pro",
+                supplier = "Amazon"
+            },
+            new Inventory
+            {
+                PartName = "OnePlus 9 Pro Charging Port",
+                PartLocation = "Asile 2, Shelf D",
+                Stock = 10,
+                LowStockThreshold = 4,
+                Cost = 9.99,
+                CompatabilityTag = "OnePlus 9 Pro",
+                supplier = "eBay"
+            },
+            new Inventory
+            {
+                PartName = "Apple iPhone 14 Pro OLED Screen",
+                PartLocation = "Asile 5, Shelf C",
+                Stock = 3,
+                LowStockThreshold = 2,
+                Cost = 189.99,
+                CompatabilityTag = "iPhone 14 Pro",
+                supplier = "MobilePartsCo"
+            },
+            new Inventory
+            {
+                PartName = "Samsung Galaxy Z Fold 4 Inner Screen",
+                PartLocation = "Asile 7, Shelf A",
+                Stock = 1,
+                LowStockThreshold = 2,
+                Cost = 349.99,
+                CompatabilityTag = "Galaxy Z Fold 4",
+                supplier = "Samsung Direct"
+            },
+            new Inventory
+            {
+                PartName = "Google Pixel 7 Rear Camera",
+                PartLocation = "Asile 3, Shelf A",
+                Stock = 7,
+                LowStockThreshold = 3,
+                Cost = 39.99,
+                CompatabilityTag = "Pixel 7",
+                supplier = "Amazon"
+            },
+            new Inventory
+            {
+                PartName = "OnePlus 11 Battery",
+                PartLocation = "Asile 2, Shelf B",
+                Stock = 9,
+                LowStockThreshold = 4,
+                Cost = 18.99,
+                CompatabilityTag = "OnePlus 11",
+                supplier = "eBay"
+            },
+            new Inventory
+            {
+                PartName = "Motorola Edge+ Screen",
+                PartLocation = "Asile 6, Shelf C",
+                Stock = 4,
+                LowStockThreshold = 2,
+                Cost = 129.99,
+                CompatabilityTag = "Motorola Edge+",
+                supplier = "MobilePartsCo"
+            },
+            new Inventory
+            {
+                PartName = "Sony Xperia 1 V Battery",
+                PartLocation = "Asile 4, Shelf A",
+                Stock = 6,
+                LowStockThreshold = 3,
+                Cost = 22.99,
+                CompatabilityTag = "Xperia 1 V",
+                supplier = "Sony Parts"
+            },
+            new Inventory
+            {
+                PartName = "Apple iPhone 13 Charging Port",
+                PartLocation = "Asile 5, Shelf D",
+                Stock = 11,
+                LowStockThreshold = 4,
+                Cost = 14.99,
+                CompatabilityTag = "iPhone 13",
+                supplier = "Amazon"
+            },
+            new Inventory
+            {
+                PartName = "Samsung Galaxy S22 Rear Camera",
+                PartLocation = "Asile 1, Shelf C",
+                Stock = 5,
+                LowStockThreshold = 2,
+                Cost = 49.99,
+                CompatabilityTag = "Galaxy S22",
+                supplier = "Samsung Direct"
+            },
+            new Inventory
+            {
+                PartName = "Google Pixel 6a Screen",
+                PartLocation = "Asile 3, Shelf B",
+                Stock = 8,
+                LowStockThreshold = 3,
+                Cost = 79.99,
+                CompatabilityTag = "Pixel 6a",
+                supplier = "Amazon"
+            },
+            new Inventory
+            {
+                PartName = "OnePlus Nord N20 Battery",
+                PartLocation = "Asile 2, Shelf C",
+                Stock = 10,
+                LowStockThreshold = 4,
+                Cost = 16.99,
+                CompatabilityTag = "Nord N20",
+                supplier = "eBay"
+            },
+            new Inventory
+            {
+                PartName = "Apple iPhone SE (2022) Screen",
+                PartLocation = "Asile 4, Shelf B",
+                Stock = 7,
+                LowStockThreshold = 3,
+                Cost = 49.99,
+                CompatabilityTag = "iPhone SE (2022)",
+                supplier = "Amazon"
+            },
+            new Inventory
+            {
+                PartName = "Samsung Galaxy A53 Battery",
+                PartLocation = "Asile 1, Shelf D",
+                Stock = 12,
+                LowStockThreshold = 5,
+                Cost = 19.99,
+                CompatabilityTag = "Galaxy A53",
+                supplier = "MobilePartsCo"
+            },
+            new Inventory
+            {
+                PartName = "Google Pixel 5 Rear Camera",
+                PartLocation = "Asile 3, Shelf D",
+                Stock = 6,
+                LowStockThreshold = 3,
+                Cost = 29.99,
+                CompatabilityTag = "Pixel 5",
+                supplier = "Amazon"
+            },
+            new Inventory
+            {
+                PartName = "Sony Xperia 5 IV Screen",
+                PartLocation = "Asile 4, Shelf C",
+                Stock = 3,
+                LowStockThreshold = 2,
+                Cost = 139.99,
+                CompatabilityTag = "Xperia 5 IV",
+                supplier = "Sony Parts"
+            },
+            new Inventory
+            {
+                PartName = "Motorola Moto G Power Charging Port",
+                PartLocation = "Asile 6, Shelf A",
+                Stock = 14,
+                LowStockThreshold = 5,
+                Cost = 8.99,
+                CompatabilityTag = "Moto G Power",
+                supplier = "eBay"
+            },
+            new Inventory
+            {
+                PartName = "Apple iPhone 12 Pro Max Battery",
+                PartLocation = "Asile 5, Shelf B",
+                Stock = 5,
+                LowStockThreshold = 2,
+                Cost = 29.99,
+                CompatabilityTag = "iPhone 12 Pro Max",
+                supplier = "Amazon"
+            }
+        };
 
-        // var manyTransactions = new List<Transactions>
-        // {
-        //     new Transactions
-        //     {
-        //         OrderId = ObjectId.Parse("69eacb2cbcfb29429c45793d"),
-        //         Cost = 98.45,
-        //         PaymentMethod = "Credit Card",
-        //         Date = DateOnly.FromDateTime(DateTime.Now),
-        //         Completed = false       
-        //     },
-        //     new Transactions
-        //     {
-        //         OrderId = ObjectId.Parse("69ebe0b8f3d4f87213c7e779"),
-        //         Cost = 58.95,
-        //         PaymentMethod = "Credit Card",
-        //         Date = DateOnly.FromDateTime(new DateTime(2024, 8, 10)),
-        //         Completed = true
-        //     },
-        //     new Transactions
-        //     {
-        //         OrderId = ObjectId.Parse("69e81dd9271df5d6cb27de77"),
-        //         Cost = 42.15,
-        //         PaymentMethod = "Cash",
-        //         Date = DateOnly.FromDateTime(new DateTime(2024, 7, 14)),
-        //         Completed = true
-        //     },
-        //     new Transactions
-        //     {
-        //         OrderId = ObjectId.Parse("69e81dd9271df5d6cb27de76"),
-        //         Cost = 129.99,
-        //         PaymentMethod = "Debit Card",
-        //         Date = DateOnly.FromDateTime(new DateTime(2024, 6, 22)),
-        //         Completed = false
-        //     },
-        //     new Transactions
-        //     {
-        //         OrderId = ObjectId.Parse("69e81dd9271df5d6cb27de78"),
-        //         Cost = 15.49,
-        //         PaymentMethod = "Cash",
-        //         Date = DateOnly.FromDateTime(new DateTime(2024, 5, 3)),
-        //         Completed = true
-        //     },
-        //     new Transactions
-        //     {
-        //         OrderId = ObjectId.Parse("69ea9eb95f5d20e2540db243"),
-        //         Cost = 210.75,
-        //         PaymentMethod = "Credit Card",
-        //         Date = DateOnly.FromDateTime(new DateTime(2024, 9, 1)),
-        //         Completed = true
-        //     },
-        //     new Transactions
-        //     {
-        //         OrderId = ObjectId.Parse("69eaa0b75f5d20e2540db24b"),
-        //         Cost = 67.30,
-        //         PaymentMethod = "Debit Card",
-        //         Date = DateOnly.FromDateTime(new DateTime(2024, 9, 12)),
-        //         Completed = false
-        //     },
-        //     new Transactions
-        //     {
-        //         OrderId = ObjectId.Parse("69eacaf5bcfb29429c457937"),
-        //         Cost = 89.99,
-        //         PaymentMethod = "Credit Card",
-        //         Date = DateOnly.FromDateTime(new DateTime(2024, 10, 2)),
-        //         Completed = true
-        //     },
-        //     new Transactions
-        //     {
-        //         OrderId = ObjectId.Parse("69eacb00bcfb29429c457939"),
-        //         Cost = 34.60,
-        //         PaymentMethod = "Cash",
-        //         Date = DateOnly.FromDateTime(new DateTime(2024, 10, 5)),
-        //         Completed = false
-        //     },
-        //     new Transactions
-        //     {
-        //         OrderId = ObjectId.Parse("69eacb14bcfb29429c45793b"),
-        //         Cost = 145.20,
-        //         PaymentMethod = "Debit Card",
-        //         Date = DateOnly.FromDateTime(new DateTime(2024, 10, 7)),
-        //         Completed = true
-        //     },
-        // }; 
+        Console.WriteLine("Items that were added to inventory:");
+        foreach (var i in manyInvetoryItems)
+        {
+            Console.WriteLine("-----------------------------");
+            Console.WriteLine($"Part Name: {i.PartName}\nPart Location: {i.PartLocation}\nStock: {i.Stock}\nLow Stock Threshold: {i.LowStockThreshold}\nCost: {i.Cost}\nCompatability Tag: {i.CompatabilityTag}\nSupplier: {i.supplier} ");
+            Console.WriteLine("-----------------------------");
+        }
 
-        // transactions.InsertMany(manyTransactions);
-        // Console.WriteLine("Transaction Doucuments Inserted:");
-        // Console.WriteLine("\n------------------------------------------");
-        // foreach (var transaction in manyTransactions)
-        // {
-        //     Console.WriteLine($"\n Order ID: {transaction.OrderId}\n Cost: {transaction.Cost}\n Form Of Payment {transaction.PaymentMethod}\n Date Of Transaction: {transaction.Date}");
-        // }
-        // Console.WriteLine("\n-------------------------------------------");
+        // Will add one transaction into the transactions collection.
+
+        var oneTransaction = new Transactions
+        {
+            OrderId = ObjectId.Parse("69e81949a408d5b688112f33"),
+            Cost = 76.99,
+            PaymentMethod = "Cash",
+            Date = new DateTime(2025, 4, 12),
+            Completed = true
+        };
+
+        transactions.InsertOne(oneTransaction);
+        Console.WriteLine("Transaction Inserted: \n");
+        Console.WriteLine($" Order ID: {oneTransaction._id}, Cost: {oneTransaction.Cost}, Form Of Payment: {oneTransaction.PaymentMethod}, Date Of Transaction: {oneTransaction.Date}");
+
+        // Will add more than one transaction to the transactions collection.
+
+        var manyTransactions = new List<Transactions>
+        {
+            new Transactions
+            {
+                OrderId = ObjectId.Parse("69eacb2cbcfb29429c45793d"),
+                Cost = 98.45,
+                PaymentMethod = "Credit Card",
+                Date = DateTime.Now,
+                Completed = false       
+            },
+            new Transactions
+            {
+                OrderId = ObjectId.Parse("69ebe0b8f3d4f87213c7e779"),
+                Cost = 58.95,
+                PaymentMethod = "Credit Card",
+                Date = new DateTime(2024, 8, 10),
+                Completed = true
+            },
+            new Transactions
+            {
+                OrderId = ObjectId.Parse("69e81dd9271df5d6cb27de77"),
+                Cost = 42.15,
+                PaymentMethod = "Cash",
+                Date = new DateTime(2024, 7, 14),
+                Completed = true
+            },
+            new Transactions
+            {
+                OrderId = ObjectId.Parse("69e81dd9271df5d6cb27de76"),
+                Cost = 129.99,
+                PaymentMethod = "Debit Card",
+                Date = new DateTime(2024, 6, 22),
+                Completed = false
+            },
+            new Transactions
+            {
+                OrderId = ObjectId.Parse("69e81dd9271df5d6cb27de78"),
+                Cost = 15.49,
+                PaymentMethod = "Cash",
+                Date = new DateTime(2024, 5, 3),
+                Completed = true
+            },
+            new Transactions
+            {
+                OrderId = ObjectId.Parse("69ea9eb95f5d20e2540db243"),
+                Cost = 210.75,
+                PaymentMethod = "Credit Card",
+                Date = new DateTime(2024, 9, 1),
+                Completed = true
+            },
+            new Transactions
+            {
+                OrderId = ObjectId.Parse("69eaa0b75f5d20e2540db24b"),
+                Cost = 67.30,
+                PaymentMethod = "Debit Card",
+                Date = new DateTime(2024, 9, 12),
+                Completed = false
+            },
+            new Transactions
+            {
+                OrderId = ObjectId.Parse("69eacaf5bcfb29429c457937"),
+                Cost = 89.99,
+                PaymentMethod = "Credit Card",
+                Date = new DateTime(2024, 10, 2),
+                Completed = true
+            },
+            new Transactions
+            {
+                OrderId = ObjectId.Parse("69eacb00bcfb29429c457939"),
+                Cost = 34.60,
+                PaymentMethod = "Cash",
+                Date = new DateTime(2024, 10, 5),
+                Completed = false
+            },
+            new Transactions
+            {
+                OrderId = ObjectId.Parse("69eacb14bcfb29429c45793b"),
+                Cost = 145.20,
+                PaymentMethod = "Debit Card",
+                Date = new DateTime(2024, 10, 7),
+                Completed = true
+            },
+        }; 
+
+        transactions.InsertMany(manyTransactions);
+        Console.WriteLine("Transaction Doucuments Inserted:");
+        Console.WriteLine("\n------------------------------------------");
+        foreach (var transaction in manyTransactions)
+        {
+            Console.WriteLine($"\n Order ID: {transaction.OrderId}\n Cost: {transaction.Cost}\n Form Of Payment {transaction.PaymentMethod}\n Date Of Transaction: {transaction.Date}");
+        }
+        Console.WriteLine("\n-------------------------------------------");
 
         // Searches for each employee who's role is a techician.
 
-        // var manyTechnicans = employees.Find(e => e.EmployeeRole == "Technician").ToList();
-        // Console.WriteLine("Techicians:");
-        // foreach (var t in manyTechnicans)
-        // {
-        //     Console.WriteLine("-------------------------------------------");
-        //     Console.WriteLine($"Name: {t.FirstName} {t.LastName}\n Employee ID: {t._id}\n Role: {t.EmployeeRole}\n");
-        //     Console.WriteLine("-------------------------------------------");
-        // }
+        var manyTechnicans = employees.Find(e => e.EmployeeRole == "Technician").ToList();
+        Console.WriteLine("Techicians:");
+        foreach (var t in manyTechnicans)
+        {
+            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine($"Name: {t.FirstName} {t.LastName}\n Employee ID: {t._id}\n Role: {t.EmployeeRole}\n");
+            Console.WriteLine("-------------------------------------------");
+        }
 
         // Will look for a specfic serial number for the device, and will update its warranity to false.
 
-        // var filter = Builders<Devices>.Filter.Eq(d => d.SerialNumber, "SN1234567890");
-        // var update = Builders<Devices>.Update.Set(d => d.underWarranty, false);     
+        var filter = Builders<Devices>.Filter.Eq(d => d.SerialNumber, "SN1234567890");
+        var update = Builders<Devices>.Update.Set(d => d.UnderWarranty, false);     
 
-        // devices.UpdateOne(filter,update);   // Will update once the serial number is found.
-        // Console.WriteLine("Devices warranty has been set to false");
+        devices.UpdateOne(filter,update);   // Will update once the serial number is found.
+        Console.WriteLine("Devices warranty has been set to false");
 
         // Will query all of the customer information, find if the brand is an apple device, will find the ids of the customers who own those decives, and will display each apple device that customer owns.
         // Code generated by Copilot.
 
-        // var customerInfo = customers.Find(_ => true).ToList();
-        // var deviceInfo = devices.Find(b => b.Brand == "Apple").ToList();
-        // var appleOwnerIds = deviceInfo.Select(d => d.CustomerId).Distinct().ToList();
-        // var appleCustomers = customerInfo.Where(c => appleOwnerIds.Contains(c._id));
+        var customerInfo = customers.Find(_ => true).ToList();
+        var deviceInfo = devices.Find(b => b.Brand == "Apple").ToList();
+        var appleOwnerIds = deviceInfo.Select(d => d.CustomerId).Distinct().ToList();
+        var appleCustomers = customerInfo.Where(c => appleOwnerIds.Contains(c._id));
+        
 
-        // Console.WriteLine("Customers who own Apple Devices:");
-        // foreach (var c in appleCustomers)
-        // {
-        //     var customerAppleDevices = deviceInfo.Where(d => d.CustomerId == c._id).ToList();
+        Console.WriteLine("Customers who own Apple Devices:");
+        foreach (var c in appleCustomers)
+        {
+            var customerAppleDevices = deviceInfo.Where(d => d.CustomerId == c._id).ToList();
 
-        //     Console.WriteLine("---------------------------------------");
-        //     Console.WriteLine($"Name: {c.FirstName} {c.LastName}\n ID: {c._id}");
-        //     Console.WriteLine("Owned Apple Devices:");
+            Console.WriteLine("---------------------------------------");
+            Console.WriteLine($"Name: {c.FirstName} {c.LastName}\n ID: {c._id}");
+            Console.WriteLine("Owned Apple Devices:");
 
-        //     foreach (var d in customerAppleDevices)
-        //     {
-        //         Console.WriteLine($"Device: {d.Brand} {d.Model}\n Under Warranty: {d.UnderWarranty}\n Device ID: {d._id}");
-        //     }  
+            foreach (var d in customerAppleDevices)
+            {
+                Console.WriteLine($"Device: {d.Brand} {d.Model}\n Under Warranty: {d.UnderWarranty}\n Device ID: {d._id}");
+            }  
 
-        //     Console.WriteLine("---------------------------------------"); 
-        // }
+            Console.WriteLine("---------------------------------------"); 
+        }
 
         // Sorting query that will display the ten most expensive transactions.
 
-        // var expensiveTransactions = transactions.Find(_ => true).SortByDescending(t => t.Cost).Limit(10).ToList();
-        // Console.WriteLine("Top ten most expensive transactions:");
-        // foreach (var e in expensiveTransactions)
-        // {
-        //     Console.WriteLine("---------------------------------------");
-        //     Console.WriteLine($"Order ID: {e.OrderId}\n Cost: {e.Cost}\n Payment Method: {e.PaymentMethod}");
-        // }   Console.WriteLine("---------------------------------------");
+        var expensiveTransactions = transactions.Find(_ => true).SortByDescending(t => t.Cost).Limit(10).ToList();
+        Console.WriteLine("Top ten most expensive transactions:");
+        foreach (var e in expensiveTransactions)
+        {
+            Console.WriteLine("---------------------------------------");
+            Console.WriteLine($"Order ID: {e.OrderId}\n Cost: {e.Cost}\n Payment Method: {e.PaymentMethod}");
+        }   Console.WriteLine("---------------------------------------");
 
         // Sample document to delete.
 
-        // var onlyOneTransacation = new Transactions
-        // {
-        //     OrderId = ObjectId.Parse("69ebe086f3d4f87213c7e773"),
-        //     Cost = 78.99,
-        //     PaymentMethod = "Cash",
-        //     Date = DateOnly.FromDateTime(new DateTime(2025, 7, 4)),
-        //     Completed = true
-        // };
+        var onlyOneTransacation = new Transactions
+        {
+            OrderId = ObjectId.Parse("69ebe086f3d4f87213c7e773"),
+            Cost = 78.99,
+            PaymentMethod = "Cash",
+            Date = new DateTime(2025, 7, 4),
+            Completed = true
+        };
 
-        // transactions.InsertOne(onlyOneTransacation);
+        transactions.InsertOne(onlyOneTransacation);
 
         // Will filter each transaction to find the matching OrderId in the transaction, once it's found, the sample document will be removed from the database.
 
-        // var deleteTranasaction = Builders<Transactions>.Filter.Eq(t => t.OrderId, ObjectId.Parse("69ebe086f3d4f87213c7e773"));
-        // transactions.DeleteOne(deleteTranasaction);
-        // Console.WriteLine("Transaction Deleted Succefully!");
+        var deleteTranasaction = Builders<Transactions>.Filter.Eq(t => t.OrderId, ObjectId.Parse("69ebe086f3d4f87213c7e773"));
+        transactions.DeleteOne(deleteTranasaction);
+        Console.WriteLine("Transaction Deleted Succefully!");
 
         // Look up query that will display all employees who live in the state of Tennessee.
 
@@ -1324,6 +1343,6 @@ class Program
             Console.WriteLine("----------------------------------------");
             Console.WriteLine($"Name: {tn.FirstName} {tn.LastName}\n Email: {tn.Email}\n Phone Number: {tn.PhoneNumber}\n Street: {tn.address.Street}\n City: {tn.address.State}\n Zip Code: {tn.address.ZipCode}");
             Console.WriteLine("----------------------------------------");
-        }
+        }   
     }   
 }
